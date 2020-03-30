@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="de" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="de" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MQTT API &mdash; ERL Face Box / Recognition &amp; Image Processing v1.0 Dokumentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" />
+    <link rel="next" title="Image-Processing" href="../../image-processing/index.html" />
+    <link rel="prev" title="face-recognition" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> ERL Face Box / Recognition & Image Processing
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Projekte</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Face Services</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../tech-stack/index.html">Technologie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../face-box/index.html">face-box</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">face-recognition</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="index.html#evaluation">Evaluation</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#api">API</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">MQTT API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../image-processing/index.html">Image-Processing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Demo</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../demo/webdemo.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demo/api.html">API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Technologie Stack</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tech-stack/docker.html">Docker</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architektur</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../architecture/index.html">Architektur</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Nützliche Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">Kontakt</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">ERL Face Box / Recognition & Image Processing</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Face Services</a> &raquo;</li>
+        
+          <li><a href="index.html">face-recognition</a> &raquo;</li>
+        
+      <li>MQTT API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/face-services/face-recognition/api.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mqtt-api">
+<h1>MQTT API<a class="headerlink" href="#mqtt-api" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Vom face-recognition Service wird das MQTT Protokoll benutzt, um Anfragen entgegenzunehmen bzw.
+Antworten zu senden. Die MQTT Topics sind in <code class="docutils literal notranslate"><span class="pre">actions</span></code> und <code class="docutils literal notranslate"><span class="pre">results</span></code> unterteilt.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Die Anfragen zu der Demo-Anwendung API gilt für öffentliche und private Informationen.
+Alle <code class="docutils literal notranslate"><span class="pre">Endpunkte</span></code> benötigen keine weiteren Authentifizierungsschritte.</p>
+</div>
+<p>Im Folgenden sind die Topics und ihre Funktion aufgeführt.</p>
+<dl class="field-list">
+<dt class="field-odd">PUBLISH <cite>face-recognition/actions/recognize</cite></dt>
+<dd class="field-odd"><p>Hier wird eine Nachricht gepostet, um ein Gesicht wiederzuerkennen.</p>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;$id&quot;</span><span class="p">:</span> <span class="s2">&quot;user1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;queryImage&quot;</span><span class="p">:</span> <span class="s2">&quot;queryImg.jpg&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>queryImage ist der Name des Portraits in der minIO Ablage. Alle Bilder werden in dem Pfad ./query-images/ gesucht.</p>
+</div>
+<dl class="field-list">
+<dt class="field-odd">PUBLISH <cite>face-recognition/actions/train</cite></dt>
+<dd class="field-odd"><p>Hier wird eine Nachricht gepostet, damit das Face-recognition Service die Bilder zum Trainieren werden kann.</p>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+        <span class="nt">&quot;$id&quot;</span><span class="p">:</span> <span class="s2">&quot;task_1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;image&quot;</span><span class="p">:</span> <span class="s2">&quot;image.jpg&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>label ist die userid in der Datenbank. image ist der Name des Bildes im minIO Storage.</p>
+</div>
+<dl class="field-list">
+<dt class="field-odd">SUBSCRIBE <cite>face-recognition/results/recognize</cite></dt>
+<dd class="field-odd"><p>Auf diese topic publisht der Face-Recognition Service seine Nachricht, wenn der Dienst eine Person wiedererkannt hat.</p>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;$id&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;Person has not been recognized&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;unknown&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../image-processing/index.html" class="btn btn-neutral float-right" title="Image-Processing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="face-recognition" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Ba Thinh Tran, Florian Hiensch, Joshua Lieser, Ochir Kurt
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

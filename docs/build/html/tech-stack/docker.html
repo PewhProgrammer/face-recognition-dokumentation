@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="de" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="de" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta content="Get started writing technical documentation with Sphinx and publishing to Read the Docs." lang="en" name="description" xml:lang="en" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Docker &mdash; ERL Face Box / Recognition &amp; Image Processing v1.0 Dokumentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
+    <link rel="search" title="Suche" href="../search.html" />
+    <link rel="next" title="Architektur" href="../architecture/index.html" />
+    <link rel="prev" title="API" href="../demo/api.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ERL Face Box / Recognition & Image Processing
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Projekte</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../face-services/index.html">Face Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../image-processing/index.html">Image-Processing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Demo</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../demo/webdemo.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo/api.html">API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Technologie Stack</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Docker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#quick-start">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-docker-compose">Configuration: docker-compose</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#standard-konfiguration">Standard-Konfiguration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#environment-variables">Environment Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker-build">Docker Build</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Architektur</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/index.html">Architektur</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Nützliche Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">Kontakt</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ERL Face Box / Recognition & Image Processing</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Docker</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/tech-stack/docker.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="docker">
+<h1>Docker<a class="headerlink" href="#docker" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Docker ist ein sehr ausgeprägtes und industrie-angewendetes Virtualisierungstool, um Anwendungen zu containerisieren und diese leicht protierbar zu machen:</p>
+<ul class="simple">
+<li><p>Benötigt keine Dependencies</p></li>
+<li><p>Besitzt seine eigene hybride Netzwerkstruktur und DNS-Auflösung</p></li>
+<li><p>Microservice konform</p></li>
+<li><p>Portabilität und Skalierbarkeit</p></li>
+</ul>
+<p>Alle Änderungen im <cite>src/</cite> Ordner werden auch automatisch in den Docker-build aufgenommen, wenn man das Dockerfile baut. Installieren Sie zunächst Docker.</p>
+<div class="section" id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Sobald Docker installiert wurde, kann man die Funktion testen durch den folgenden einfachen Befehl:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>user@shell:&lt;project-root&gt;$ docker --version
+</pre></div>
+</div>
+<p>Benutzen Sie unser Docker-compose.yml File, um die benötigten Services schnell und einfach zu starten:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>user@shell:&lt;project-root&gt;$ docker-compose up -d --build
+</pre></div>
+</div>
+<p>Alle Dienste sollten jetzt laufen. Überprüfen Sie dies mit dem folgendem Befehl:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>user@shell:&lt;project-root&gt;$ docker ps
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration-docker-compose">
+<h2>Configuration: docker-compose<a class="headerlink" href="#configuration-docker-compose" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Wir benutzen ein <cite>docker-compose.yml</cite> File, um die Microservices zu starten. In diesem Abschnitt
+sollen besondere Konfigurationsmöglichkeiten gezeigt werden.</p>
+<div class="section" id="standard-konfiguration">
+<h3>Standard-Konfiguration<a class="headerlink" href="#standard-konfiguration" title="Link zu dieser Überschrift">¶</a></h3>
+<blockquote>
+<div><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span> <span class="s">&quot;3.7&quot;</span>
+
+<span class="nt">x-logging</span><span class="p">:</span>
+<span class="nl">&amp;default-logging</span>
+<span class="nt">options</span><span class="p">:</span>
+    <span class="nt">max-size</span><span class="p">:</span> <span class="s">&quot;200k&quot;</span>
+    <span class="nt">max-file</span><span class="p">:</span> <span class="s">&quot;10&quot;</span>
+
+<span class="nt">services</span><span class="p">:</span>
+<span class="nt">mqtt_broker</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">hivemq/hivemq-ce</span>
+    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gaia_mqtt_broker</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+    <span class="nt">ports</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">9001:9001</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">1883:1883</span>
+    <span class="nt">logging</span><span class="p">:</span> <span class="nv">*default-logging</span>
+
+<span class="nt">minio</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">minio/minio</span>
+    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gaia_minio</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+    <span class="nt">ports</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">7001:9000</span>
+    <span class="nt">environment</span><span class="p">:</span>
+    <span class="nt">MINIO_ACCESS_KEY</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">xQC2dV7ohZmUaz1Fxz0bKLzDeaGS1WXF</span>
+    <span class="nt">MINIO_SECRET_KEY</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gioVfeVp4Qus4wWBk0ITvKrzebu8xcMB</span>
+    <span class="nt">command</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">server /data</span>
+    <span class="nt">logging</span><span class="p">:</span> <span class="nv">*default-logging</span>
+
+<span class="nt">face-box</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">faceapibox:latest</span>
+    <span class="nt">build</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.</span>
+    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">face_box</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+    <span class="nt">depends_on</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;mqtt_broker&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;minio&quot;</span>
+    <span class="nt">environment</span><span class="p">:</span>
+        <span class="nt">MQTT_HOST</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gaia_mqtt_broker</span>
+        <span class="nt">MQTT_PORT</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1883</span>
+        <span class="nt">MINIO_HOST</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gaia_minio</span>
+        <span class="nt">MINIO_PORT</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9000</span>
+        <span class="nt">DB_HOST</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">faceapi-database</span>
+        <span class="nt">DB_PORT</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5432</span>
+    <span class="nt">ports</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">4321:4321</span>
+    <span class="nt">logging</span><span class="p">:</span> <span class="nv">*default-logging</span>
+
+<span class="nt">db-persons</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">faceapi-database:latest</span>
+    <span class="nt">build</span><span class="p">:</span>
+    <span class="nt">context</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.</span>
+    <span class="nt">dockerfile</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">database/Dockerfile</span>
+    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">faceapi-database</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+    <span class="c1"># network_mode: gaia</span>
+    <span class="nt">ports</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">5432:5432</span>
+    <span class="nt">logging</span><span class="p">:</span> <span class="nv">*default-logging</span>
+
+<span class="nt">face-recognition</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">jcl94/erl-face-recognition:latest</span>
+    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">face-recognition</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+    <span class="nt">depends_on</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;mqtt_broker&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;minio&quot;</span>
+    <span class="nt">environment</span><span class="p">:</span>
+        <span class="nt">MQTT_URL</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mqtt://gaia_mqtt_broker</span>
+        <span class="nt">MQTT_PORT</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1883</span>
+        <span class="nt">MINIO_HOST</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gaia_minio</span>
+        <span class="nt">MINIO_PORT</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9000</span>
+    <span class="nt">logging</span><span class="p">:</span> <span class="nv">*default-logging</span>
+
+<span class="nt">networks</span><span class="p">:</span>
+<span class="nt">gaia</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gaia-network_mode</span>
+    <span class="nt">external</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="environment-variables">
+<h3>Environment Variables<a class="headerlink" href="#environment-variables" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Alle bereitgestellten Services können über Environment Variables konfiguriert werden. Zum Beispiel kann der Port vom MQTT Broker beim Start
+des Containers über die Konfiguration eingestellt werden:</p>
+<blockquote>
+<div><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">face-box</span><span class="p">:</span>
+    <span class="nt">environment</span><span class="p">:</span>
+        <span class="nt">MQTT_HOST</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gaia_mqtt_broker</span>
+        <span class="nt">MQTT_PORT</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1883</span>
+        <span class="nt">MINIO_HOST</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gaia_minio</span>
+        <span class="nt">MINIO_PORT</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9000</span>
+        <span class="nt">DB_HOST</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">faceapi-database</span>
+        <span class="nt">DB_PORT</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5432</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="docker-build">
+<h3>Docker Build<a class="headerlink" href="#docker-build" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Beim Start der docker-compose.yml wird ein docker image für die entsprechende Anwendung generiert.
+Die jeweils anderen Services liegen in anderen repositories, weswegen sie stattdessen vom docker hub gepullt werden.</p>
+<p>Bsp.:</p>
+<blockquote>
+<div><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">face-box</span><span class="p">:</span> <span class="c1"># sucht im root das Dockerfile und baut diesen</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">faceapibox:latest</span>
+    <span class="nt">build</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.</span>
+
+<span class="nt">face-recognition</span><span class="p">:</span> <span class="c1"># pullt einen vorgefertigten Docker Image</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">jcl94/erl-face-recognition:latest</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../architecture/index.html" class="btn btn-neutral float-right" title="Architektur" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../demo/api.html" class="btn btn-neutral float-left" title="API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Ba Thinh Tran, Florian Hiensch, Joshua Lieser, Ochir Kurt
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
