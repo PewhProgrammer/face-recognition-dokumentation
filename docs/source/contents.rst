@@ -7,11 +7,11 @@ Inhaltsverzeichnis
    :hidden:
    :caption: Inhaltsverzeichnis
 
-   projektarbeit/index
-
    implementation/index
 
    demo/index
 
    tech-stack/docker
+
+   projektarbeit/index
 
