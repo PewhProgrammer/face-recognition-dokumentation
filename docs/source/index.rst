@@ -11,6 +11,12 @@ Willkommen zur technischen Dokumentation des Gesichtserkennungsprojekts der Grup
 ==============================================================================================================
 
 
+:Info: See <http://docutils.sf.net/rst.html> for introductory docs.
+:Author: David Goodger <goodger@python.org> dsd
+:Date: $Date: 2013-02-20 02:10:53 +0100 (Mi, 20. Feb 2013) $
+:Revision: $Revision: 7612 $
+:Description: This is a "docinfo block", or bibliographic field list
+
 .. toctree::
    :maxdepth: 3
    :caption: Projektarbeit

@@ -3,10 +3,18 @@ Inhaltsverzeichnis
 
 .. toctree::
    :maxdepth: 3
+   :hidden:
    :caption: Projektarbeit
 
    projektarbeit/index
-   implementation/index
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Projektarbeit
+
+   projektarbeit/allgemeines
+   projektarbeit/architektur
+   projektarbeit/fazit
 
 .. toctree::
    :maxdepth: 3
@@ -28,11 +36,3 @@ Inhaltsverzeichnis
    :caption: Technologie Stack
 
    tech-stack/docker
-
-
-.. toctree::
-   :maxdepth: 2
-   :hidden:
-   :caption: Nützliche Links
-
-   help
