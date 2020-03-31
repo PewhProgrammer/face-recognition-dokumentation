@@ -13,3 +13,7 @@ durch Docker Swarm einfach ersetzt werden kann. Unser Technologie Stack besteht 
 
 .. image:: ../_static/images/architecture.png
    :width: 600
+
+
+.. image:: ../_static/images/mqtt.png
+   :width: 300

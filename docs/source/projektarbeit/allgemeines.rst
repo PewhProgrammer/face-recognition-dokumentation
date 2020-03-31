@@ -52,3 +52,12 @@ In :doc:`Kapitel 3 <../demo/index>` schildern wir Ihnen alles über unsere entwi
 
 
 In :doc:`Kapitel 4 <../tech-stack/docker>` wird Docker thematisiert und wie man dies in unserer Umgebung am Besten konfiguriert.
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Inhaltsverzeichnis
+
+   ../implementation/index 
+   ../demo/index
+   ../tech-stack/docker
