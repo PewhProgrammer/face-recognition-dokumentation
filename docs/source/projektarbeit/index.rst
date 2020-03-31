@@ -1,11 +1,9 @@
 Projektarbeit
-========================
+=====================
 
 .. toctree::
-   :maxdepth: 3
-   :hidden:
-   :caption: Projektarbeit
+  :maxdepth: 3
 
-   allgemeines
-   architektur
-   fazit
+  allgemeines
+  architektur
+  fazit
