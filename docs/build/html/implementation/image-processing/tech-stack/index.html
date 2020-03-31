@@ -1,0 +1,244 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="de" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="de" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta content="Get started writing technical documentation with Sphinx and publishing to Read the Docs." lang="en" name="description" xml:lang="en" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Technologie (Image-Processing Services) &mdash; ERL Face Box / Recognition &amp; Image Processing v1.0 Dokumentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
+    <link rel="search" title="Suche" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> ERL Face Box / Recognition & Image Processing
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Projektarbeit</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../projektarbeit/index.html">Allgemeines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../projektarbeit/architektur.html">Architektur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../projektarbeit/fazit.html">Fazit</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Demo</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../demo/index.html">Übersicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../demo/api.html">API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Technologie Stack</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../tech-stack/docker.html">Docker</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Nützliche Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../help.html">Kontakt</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ERL Face Box / Recognition & Image Processing</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Technologie (Image-Processing Services)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/implementation/image-processing/tech-stack/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="technologie-image-processing-services">
+<h1>Technologie (Image-Processing Services)<a class="headerlink" href="#technologie-image-processing-services" title="Link zu dieser Überschrift">¶</a></h1>
+<div class="section" id="python">
+<h2>Python<a class="headerlink" href="#python" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Der gesamte Service wurde in Python 3.8.1 geschrieben.
+Die verwendeten Bibliotheken, die zur Inbetriebnahme notwendig sind, befinden sich in der requirements.txt.</p>
+<div class="section" id="quick-start">
+<h3>Quick Start<a class="headerlink" href="#quick-start" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Es wird angenommen, dass ihre CLI auf den project root zeigt und die notwendigen Services im Hintergrund laufen. Dafür kann einfacher in der docker-compose.yml der image-processing-service auskommentiert werden und anschließend die Container gestartet werden.
+Der Dienst kann auskommentiert werden, da dieser per Python nativ betrieben wird.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warnung</p>
+<p>Es wird davon ausgegangen, dass Python 3 installiert ist und die Umgebungsvariable <strong>python</strong> auch Python 3 verwendet.</p>
+</div>
+<p>Zunächst müssen wir die notwendigen Bibliotheken installieren.
+Diese werden aus der requirements.txt ausgelesen</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>user@shell:image-processing$ pip3 install --no-cache-dir -r .
+</pre></div>
+</div>
+<p>Danach muss nur noch die app.py gestartet werden:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>user@shell:image-processing$ python app.py
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>localhost:7001 -&gt; minIO storage</p></li>
+</ul>
+</div>
+<div class="section" id="mqtt-broker">
+<h3>MQTT Broker<a class="headerlink" href="#mqtt-broker" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Der Broker sollte nun auch laufen. Um den Nachrichten-Austausch zwischen den Diensten zu beobachten, kann man einen MQTT Client (z.b. MQTT Explorer) an
+den Broker anbinden:</p>
+<ul class="simple">
+<li><p>mqtt://localhost:1883</p></li>
+<li><p>keine TLS Terminierung</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Ba Thinh Tran, Florian Hiensch, Joshua Lieser, Ochir Kurt
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

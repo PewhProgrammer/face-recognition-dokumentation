@@ -39,7 +39,7 @@ Hinzu kommt noch, dass der Adaptive-Threshold über zwei unterschiedliche Algori
 
 .. note::
 
-   Es gibt noch eine weitere Berechnungsmethode, bei der mittels Otsu’s Binarization, oder auch Otsu’s method genannt, ein Schwellwert definiert werden kann. Dies erfolgt über eine bimodale Verteilung. Wenn ein Bild über keine solche Verteilung verfügt, kann diese Operation nicht ausgeführt werden.
+    Es gibt noch eine weitere Berechnungsmethode, bei der mittels Otsu’s Binarization, oder auch Otsu’s method genannt, ein Schwellwert definiert werden kann. Dies erfolgt über eine bimodale Verteilung. Wenn ein Bild über keine solche Verteilung verfügt, kann diese Operation nicht ausgeführt werden.
     Aus diesem Grund wurde sich mit der Frontend-Gruppe darauf geeinigt, dass der Service nur mit den o. g. Methoden die Berechnung ausführt.
 
 Für jedes Bild werden insgesamt 3 verschiedene Berechnung durchgeführt:

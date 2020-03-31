@@ -36,15 +36,15 @@ face-box
 ----------------
 MQTT basierter Node.js Service für Berechnung und Austausch von Gesichtsrahmenboxen.
 
-:doc:`Getting Started <face-services/face-box/index>`
+:doc:`Getting Started <implementation/face-services/face-box/index>`
 
 .. toctree::
    :maxdepth: 3
    :hidden:
    :caption: Implementierung
 
-   face-services/index
-   image-processing/index
+   implementation/face-services/index
+   implementation/image-processing/index
 
 
 face-recognition
@@ -54,7 +54,7 @@ MQTT basierter Node.js Service zur
 * Berechnung und Speicherung von Gesichtsdeskriptoren
 * Wiedererkennung von Personen auf Basis der Trainingsdaten
 
-:doc:`Getting started <face-services/face-recognition/index>`
+:doc:`Getting started <implementation/face-services/face-recognition/index>`
 
 image-processing
 ------------------------------
@@ -63,7 +63,7 @@ MQTT basierter python Service zur Verarbeitung von Bildern. Unterstützte Effekt
 * Black-and-White (Oreo)
 * Cropping
 
-:doc:`Getting started <image-processing/index>`
+:doc:`Getting started <implementation/image-processing/index>`
 
 Demo
 ------
@@ -76,7 +76,7 @@ HTML/CSS/JS basierte Demo-Applikation zur Demonstration der Funktionalitäten de
    :hidden:
    :caption: Demo
 
-   demo/index
+   demo/webdemo
    demo/api
 
 .. toctree::

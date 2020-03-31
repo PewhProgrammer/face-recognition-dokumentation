@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Übersicht &mdash; ERL Face Box / Recognition &amp; Image Processing v1.0 Dokumentation</title>
+  <title>Demo &mdash; ERL Face Box / Recognition &amp; Image Processing v1.0 Dokumentation</title>
   
 
   
@@ -35,9 +35,7 @@
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
-    <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Setup" href="webdemo.html" />
-    <link rel="prev" title="MQTT API" href="../image-processing/cropping/api.html" /> 
+    <link rel="search" title="Suche" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,17 +87,12 @@
 </ul>
 <p class="caption"><span class="caption-text">Implementierung</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../face-services/index.html">Gesichtererkennung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../image-processing/index.html">Bildbearbeitung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../implementation/face-services/index.html">Gesichtererkennung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../implementation/image-processing/index.html">Bildbearbeitung</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Demo</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Übersicht</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="webdemo.html">Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webdemo.html#use-case">Use Case</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#demo-video">Demo Video</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="webdemo.html">Übersicht</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Technologie Stack</span></p>
@@ -154,7 +147,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Übersicht</li>
+      <li>Demo</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -173,29 +166,25 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="ubersicht">
-<h1>Übersicht<a class="headerlink" href="#ubersicht" title="Link zu dieser Überschrift">¶</a></h1>
+  <div class="section" id="demo">
+<h1>Demo<a class="headerlink" href="#demo" title="Link zu dieser Überschrift">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="webdemo.html">Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="webdemo.html#use-case">Use Case</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webdemo.html">Übersicht</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webdemo.html#demo-video">Demo Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webdemo.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webdemo.html#use-case">Use Case</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#rest-api">REST API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#users">Users</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
-<p>Die Demo-Anwendung wurde im Rahmen der Projektarbeit als visueller Prototyp entwickelt, um die Features der
-Backend-Services darzustellen. Die visuelle Darstellung des Interfaces ist frei wählbar und flexibel. Das Augenmerk
-soll auf der Schnittstelle und den Services liegen. Die Demo-Anwendung kann benutzt werden, um die Interaktion mit dem
-Backend besser nachzuvollziehen und eine Anwendung für den Produktionsbetrieb zu entwickeln.</p>
-<div class="admonition note">
-<p class="admonition-title">Bemerkung</p>
-<p>Zur Zeit der Abnahme wurde nur der Image-Processing Service in das Frontend des Projektes der Gruppe 6 integriert.</p>
-</div>
-<p>Um die Anwendung zu starten, muss man die Docker-Services mit unserer <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code>
-starten und das Interface über <code class="docutils literal notranslate"><span class="pre">localhost:4321</span></code> via Browser öffnen.</p>
-<div class="section" id="demo-video">
-<h2>Demo Video<a class="headerlink" href="#demo-video" title="Link zu dieser Überschrift">¶</a></h2>
-<video width="700" height="610" controls>
-    <source src="../_static/videos/Projektarbeit-demo-2020.mp4" type="video/mp4">
-</video></div>
 </div>
 
 
@@ -203,15 +192,6 @@ starten und das Interface über <code class="docutils literal notranslate"><span
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="webdemo.html" class="btn btn-neutral float-right" title="Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../image-processing/cropping/api.html" class="btn btn-neutral float-left" title="MQTT API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

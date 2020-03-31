@@ -4,9 +4,9 @@ Inhaltsverzeichnis
 .. toctree::
    :maxdepth: 3
    :hidden:
-   :caption: Services
+   :caption: Inhaltsverzeichnis
 
-   face-services/index
-   image-processing/index
+   projektarbeit/index
+   implementation/index
    demo/index
    tech-stack/docker

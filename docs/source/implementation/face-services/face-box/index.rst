@@ -9,7 +9,7 @@ Anwendung gestartet werden kann.
 Es gibt zwei Methoden. Entweder kann man mit unserem Dockerfile eine Image bauen und diese starten oder man kann die Anwendung über nodejs starten.
 
 Getting started:
-:doc:`With Docker <../../tech-stack/docker>` |
+:doc:`With Docker <../../../tech-stack/docker>` |
 :doc:`With Nodejs <../tech-stack/index>`
 
 Evaluation
@@ -44,7 +44,7 @@ als Antwort die Eckpunkte eines Gesichts zurückzugeben. Die Bounding Box wird h
 neuronale Netze, die man laden kann und mit Bildern trainieren kann. Für unsere Anwendung benutzen wir ein
 vortrainiertes Model ``faceLandmark68TinyNet``, das für die schnelle Erkennung von Gesichtern optimiert wurde. Alle modelle sind in dem Ordner
 `/models` verfügbar. Um den Dienst anzusprechen muss man über das richtige ``MQTT Topic`` eine Anfrage schicken. Als Antwort kommt dann entweder eine Fehlermeldung oder 
-das gewünschte Ergebnis in der entsprechenden MQTT Topic. Welche Topic man hierbei betrachten muss, wird in :doc:`public api <../../demo/api>` beschrieben.
+das gewünschte Ergebnis in der entsprechenden MQTT Topic. Welche Topic man hierbei betrachten muss, wird in :doc:`public api <../../../demo/api>` beschrieben.
 
 Visuelle Darstellung in Form eines Rechtecks
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -56,7 +56,7 @@ wurde ein einfaches Canvas über das Video-Canvas gelegt, um die Form zu zeichne
 
 Hier ist ein beispielhaftes Abbild von der Funktionalität der face-api.js.
 
-.. image:: ../../_static/images/faceapi.gif
+.. image:: ../../../_static/images/faceapi.gif
    :width: 600
 
 .. note::
@@ -64,13 +64,13 @@ Hier ist ein beispielhaftes Abbild von der Funktionalität der face-api.js.
     Face-box gibt nur die Bounding-Box aus und nicht die im Bild demonstrierten Features.
     Der Usecase kann aber nach Bedarf erweitert werden, da das Framework dies bereits zur Verfügung stellt.
 
-.. image:: ../../_static/images/angela.png
+.. image:: ../../../_static/images/angela.png
    :width: 300
 
-.. image:: ../../_static/images/brad_2.png
+.. image:: ../../../_static/images/brad_2.png
    :width: 240
 
-.. image:: ../../_static/images/brad.png
+.. image:: ../../../_static/images/brad.png
    :width: 300
 
 .. note::

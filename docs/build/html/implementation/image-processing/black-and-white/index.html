@@ -1,0 +1,289 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="de" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="de" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Black-and-White Service (Oreo service) &mdash; ERL Face Box / Recognition &amp; Image Processing v1.0 Dokumentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
+    <link rel="search" title="Suche" href="../../../search.html" />
+    <link rel="next" title="MQTT API" href="api.html" />
+    <link rel="prev" title="Technologie (Image-Processing Services)" href="../tech-stack/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> ERL Face Box / Recognition & Image Processing
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Projektarbeit</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../projektarbeit/index.html">Allgemeines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../projektarbeit/architektur.html">Architektur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../projektarbeit/fazit.html">Fazit</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementierung</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../face-services/index.html">Gesichtererkennung</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Bildbearbeitung</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../tech-stack/index.html">Technologie</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Black-and-White Service (Oreo service)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#evaluation">Evaluation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#schwarz-weisz-berechnung">Schwarz-Weiß-Berechnung</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api">API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.html">MQTT API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cropping/index.html">Cropping Service</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Demo</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../demo/index.html">Übersicht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../demo/api.html">API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Technologie Stack</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../tech-stack/docker.html">Docker</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Nützliche Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../help.html">Kontakt</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ERL Face Box / Recognition & Image Processing</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Bildbearbeitung</a> &raquo;</li>
+        
+      <li>Black-and-White Service (Oreo service)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/implementation/image-processing/black-and-white/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="black-and-white-service-oreo-service">
+<h1>Black-and-White Service (Oreo service)<a class="headerlink" href="#black-and-white-service-oreo-service" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Dieser Service, soll anhand eines (Farb)-Bildes, verschiedene Schwarz-Weiß-Bilder erzeugen. Der Service sollte dann später von Gruppe 6 durch
+das von ihr entwickelte UI verwendet werden, sodass der Benutzer von 3 möglichen Entwürfen sich ein Bild aussuchen kann, dass mit der Auftragserfassung gespeichert werden soll.</p>
+<div class="section" id="evaluation">
+<h2>Evaluation<a class="headerlink" href="#evaluation" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Da der Image-Processing-Service hauptsächlich mit dem Frontend interagiert, wurde evaluiert,
+ob eine Implementierung des Service direkt im UI nicht von Vorteil wäre.</p>
+<p>Einer der Gründe war die Auswahl des Berechnungsalgorithmus und deren Parametrisierung. Diese haben einen erheblichen Einfluss auf das resultierende Schwarz-Weiß-Foto.
+Diesem Problem, wurde versucht entgegenzuwirken, indem der Micro-Service drei verschiedene Berechnungen mit jeweils unterschiedlichen Algorithmen erzeugt.
+Dennoch besteht das Risiko, dass aufgrund der Lichtverhältnisse die Ergebnisse nicht zufriedenstellen sind.</p>
+<p>Aus diesem Grund wurde eine Alternative entwickelt, die direkt im Browser läuft, und der Backend-Lösung gegenüber gestellt.</p>
+<p>Dabei kamen wir zum Ergebnis, dass die Realisierung im Frontend durchaus vorstellbar ist. Jedoch verfügt die JavaScript-Implementierung von OpenCV weniger Funktionalitäten, als die Python-Implementierung.
+Zudem ist die Vision, dass sämtliche Bildbearbeitungsprozesse die zukünftig im EmRoLab notwendig sein werden, dem Service hinzugefügt werden können.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Weitere Informationen können aus diesem Artikel entnommen werden <a class="reference external" href="https://blog.theodo.com/2019/02/computer-vision-web-opencv-js/">https://blog.theodo.com/2019/02/computer-vision-web-opencv-js/</a></p>
+</div>
+</div>
+<div class="section" id="schwarz-weisz-berechnung">
+<h2>Schwarz-Weiß-Berechnung<a class="headerlink" href="#schwarz-weisz-berechnung" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Bei der Schwarz-Weiß-Berechnung wird zunächst das Original-Bild aus einem MinIo-Bucket eingelesen. Anschließend wird aus dem Originalfoto ein Grayscale Foto erzeugt, beidem das Farbspektrum auf eine Pixel-Range von 0 bis 255 verteilt wird (0 Schwarz, 255 Weiß).</p>
+<p>Daraufhin erfolgt die eigentliche Schwarz-Weiß-Berechnung mittels Threshold. Hierfür bietet OpenCV verschiedene Operationen:</p>
+<ol class="arabic simple">
+<li><p>(Simple)-Threshold</p></li>
+<li><p>Adaptive-Threshold</p></li>
+</ol>
+<p>Hinzu kommt noch, dass der Adaptive-Threshold über zwei unterschiedliche Algorithmen verfügt, die zu unterschiedlichen Resultaten führen:</p>
+<ol class="arabic simple">
+<li><p>ADAPTIVE_THRESH_MEAN_C</p></li>
+<li><p>ADAPTIVE_THRESH_GAUSSIAN_C</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Es gibt noch eine weitere Berechnungsmethode, bei der mittels Otsu’s Binarization, oder auch Otsu’s method genannt, ein Schwellwert definiert werden kann. Dies erfolgt über eine bimodale Verteilung. Wenn ein Bild über keine solche Verteilung verfügt, kann diese Operation nicht ausgeführt werden.
+Aus diesem Grund wurde sich mit der Frontend-Gruppe darauf geeinigt, dass der Service nur mit den o. g. Methoden die Berechnung ausführt.</p>
+</div>
+<p>Für jedes Bild werden insgesamt 3 verschiedene Berechnung durchgeführt:</p>
+<ol class="arabic simple">
+<li><p>(Simple)-Threshold</p></li>
+<li><p>Adaptive-Threshold mit ADAPTIVE_THRESH_MEAN_C</p></li>
+<li><p>Adaptive-Threshold mit ADAPTIVE_THRESH_GAUSSIAN_C</p></li>
+</ol>
+</div>
+<div class="section" id="api">
+<h2>API<a class="headerlink" href="#api" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">MQTT API</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api.html" class="btn btn-neutral float-right" title="MQTT API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../tech-stack/index.html" class="btn btn-neutral float-left" title="Technologie (Image-Processing Services)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Ba Thinh Tran, Florian Hiensch, Joshua Lieser, Ochir Kurt
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
