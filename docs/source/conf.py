@@ -62,6 +62,8 @@ html_theme = "sphinx_rtd_theme"
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+# The master toctree document.
+master_doc = 'index'
 
 # -- Options for manual page output ---------------------------------------
 
@@ -71,6 +73,3 @@ man_pages = [
     (master_doc, 'readthedocsbuild', u'Read the Docs Build Documentation',
      [author], 1)
 ]
-
-# The master toctree document.
-master_doc = 'index'

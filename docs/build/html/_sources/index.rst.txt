@@ -10,7 +10,6 @@
 Willkommen zur technischen Dokumentation des Gesichtserkennungsprojekts der Gruppe 7 im WS19/20
 ==============================================================================================================
 
-
 .. toctree::
    :maxdepth: 3
    :caption: Projektarbeit
