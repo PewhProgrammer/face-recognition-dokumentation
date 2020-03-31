@@ -13,7 +13,7 @@ Willkommen zur technischen Dokumentation des Gesichtserkennungsprojekts der Grup
 
 .. toctree::
    :maxdepth: 3
-   :caption: Projektarbeit
+   :caption: Projektarbeit-ripps
 
    projektarbeit/allgemeines
    projektarbeit/architektur
