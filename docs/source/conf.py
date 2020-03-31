@@ -22,7 +22,7 @@ copyright = '2020, Ba Thinh Tran, Florian Hiensch, Joshua Lieser, Ochir Kurt'
 author = 'Ba Thinh Tran, Florian Hiensch, Joshua Lieser, Ochir Kurt'
 
 # The full version, including alpha/beta/rc tags
-release = 'v1.0'
+release = 'v1.1'
 
 
 # -- General configuration ---------------------------------------------------
@@ -61,7 +61,3 @@ html_theme = "sphinx_rtd_theme"
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
-
-html_context = {
-    'author': 'My Name',
-}

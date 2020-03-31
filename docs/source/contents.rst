@@ -8,5 +8,9 @@ Inhaltsverzeichnis
    :caption: Inhaltsverzeichnis
 
    projektarbeit/index
-   implementation/face-services/index
+
    implementation/index
+
+   demo/index
+
+   tech-stack/demo
