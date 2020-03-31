@@ -35,7 +35,9 @@
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
-    <link rel="search" title="Suche" href="../search.html" /> 
+    <link rel="search" title="Suche" href="../search.html" />
+    <link rel="next" title="Architektur" href="architektur.html" />
+    <link rel="prev" title="Willkommen zur technischen Dokumentation des Gesichtserkennungsprojekts der Gruppe 7 im WS19/20" href="../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -79,14 +81,18 @@
               
             
             
-              <p class="caption"><span class="caption-text">Services</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../face-services/index.html">Face Services</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../image-processing/index.html">Image-Processing</a></li>
+              <p class="caption"><span class="caption-text">Projektarbeit</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Allgemeines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ubersicht">Übersicht</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="architektur.html">Architektur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fazit.html">Fazit</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Demo</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../demo/index.html">Allgemeines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo/webdemo.html">Übersicht</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../demo/api.html">API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Technologie Stack</span></p>
@@ -170,6 +176,36 @@ serverseitigen Services bereitgestellt werden:</p>
 <li><p>Ermitteln von Begrenzungsboxen zu erkannten Gesichtern</p></li>
 <li><p>Die Verarbeitung von Bildern zur Anwendung verschiedener Effekte</p></li>
 </ul>
+<p>Zu diesem Zweck wurden die folgenden 3 Services und eine Demo Applikation zur Nutzung dieser entwickelt:</p>
+<p><strong>Bounding Box um Gesichter (face-box)</strong></p>
+<p>MQTT basierter Node.js Service für Berechnung und Austausch von Gesichtsrahmenboxen.</p>
+<p><a class="reference internal" href="../implementation/face-services/face-box/index.html"><span class="doc">Getting Started</span></a></p>
+<p><strong>face-recognition</strong></p>
+<p>MQTT basierter Node.js Service zur</p>
+<ul class="simple">
+<li><p>Berechnung und Speicherung von Gesichtsdeskriptoren</p></li>
+<li><p>Wiedererkennung von Personen auf Basis der Trainingsdaten</p></li>
+</ul>
+<p><a class="reference internal" href="../implementation/face-services/face-recognition/index.html"><span class="doc">Getting started</span></a></p>
+<p><strong>image-processing</strong>
+MQTT basierter python Service zur Verarbeitung von Bildern. Unterstützte Effekte:</p>
+<ul class="simple">
+<li><p>Black-and-White (Oreo)</p></li>
+<li><p>Cropping</p></li>
+</ul>
+<p><a class="reference internal" href="../implementation/image-processing/index.html"><span class="doc">Getting started</span></a></p>
+<div class="section" id="ubersicht">
+<h2>Übersicht<a class="headerlink" href="#ubersicht" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Alle Dienste wurden abgekapselt in ihren eigenen Docker Container entwickelt und für eine Microservice-Architektur bereitgestellt. Hierbei wurden in den einzelnen Diensten die
+Wahl der Frameworks und Implementierungsart frei entschieden, wodurch eine hohe Abkopplung zwischen den Diensten aufgebaut wurde. Das Verbindungsglied dieser Dienste wurde durch die
+Kommunikationsschnittstelle der MQTT Broker realisiert. Bestimmte Topic Namen wurden ausgewählt und dienten als Input/Output für die Dienste. Dadurch sind fremde Dienste in der Lage
+die Funktionalitäten dieser Projektarbeit einfach und flexible zu nutzen. Die Architektur und der konkrete Usecase wird im <a class="reference internal" href="architektur.html"><span class="doc">nächsten Kapitel</span></a>  näher erläutert. Am Ende wird ein kurzer Ausblick
+auf das Projekt zusammengefasst und ein Fazit gezogen.</p>
+<p>In <a class="reference internal" href="../implementation/index.html"><span class="doc">Kapitel 2</span></a> haben wir Ihnen die Dienste im Detail aufgestellt. Hier betrachten wir die Evaluation verschiedener Frameworks , verwendeten Technologien und Implementierungsdetails. Außerdem
+wir ein großer Bereich die öffentliche Schnittstelle nach außen über MQTT sein und wie man die Services zum Laufen bekommt.</p>
+<p>In <a class="reference internal" href="../demo/index.html"><span class="doc">Kapitel 3</span></a> schildern wir Ihnen alles über unsere entwickelte HTML/CSS/JS basierte Demo-Applikation zur Demonstration der Funktionalitäten der obengenannten Services. Wir zeigen Ihnen Video- und Bildmaterial, während der Usecase der Anwendung erläutert wird.</p>
+<p>In <a class="reference internal" href="../tech-stack/docker.html"><span class="doc">Kapitel 4</span></a> wird Docker thematisiert und wie man dies in unserer Umgebung am Besten konfiguriert.</p>
+</div>
 </div>
 
 
@@ -177,6 +213,15 @@ serverseitigen Services bereitgestellt werden:</p>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="architektur.html" class="btn btn-neutral float-right" title="Architektur" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Willkommen zur technischen Dokumentation des Gesichtserkennungsprojekts der Gruppe 7 im WS19/20" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

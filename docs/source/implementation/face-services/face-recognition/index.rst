@@ -6,7 +6,7 @@ von Gesichtern ermöglicht. Der Service sollte dann später von Gruppe 6 durch
 das von ihr entwickelte UI verwendet werden, um im Rahmen einer
 Auftragsverarbeitung zusätzlich Gesichtsdaten zu speichern und einen
 späteren Auftragsdatenabruf per Gesichtserkennung zu ermöglichen.
-Aus zeitgründen wurde er jedoch zunächst in das :doc:`Demo-Projekt der Gruppe 7 <../../demo/webdemo>` eingebunden.
+Aus Zeitgründen wurde er jedoch zunächst in das :doc:`Demo-Projekt der Gruppe 7 <../../../demo/webdemo>` eingebunden.
 
 Evaluation
 ----------------

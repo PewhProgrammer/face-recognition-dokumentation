@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Allgemeines &mdash; ERL Face Box / Recognition &amp; Image Processing v1.0 Dokumentation</title>
+  <title>Projektarbeit &mdash; ERL Face Box / Recognition &amp; Image Processing v1.0 Dokumentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Architektur" href="architektur.html" />
-    <link rel="prev" title="Willkommen zur technischen Dokumentation des Gesichtserkennungsprojekts der Gruppe 7 im WS19/20" href="../index.html" /> 
+    <link rel="next" title="Allgemeines" href="allgemeines.html" />
+    <link rel="prev" title="Inhaltsverzeichnis" href="../contents.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,29 +83,38 @@
             
               <p class="caption"><span class="caption-text">Projektarbeit</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Allgemeines</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="architektur.html">Architektur</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fazit.html">Fazit</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../contents.html">Inhaltsverzeichnis</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Projektarbeit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="allgemeines.html">Allgemeines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architektur.html">Architektur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fazit.html">Fazit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../implementation/index.html">Implementierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demo/index.html">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tech-stack/docker.html">Docker</a></li>
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Services</span></p>
+<p class="caption"><span class="caption-text">Projektarbeit</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../face-services/index.html">Face Services</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../image-processing/index.html">Image-Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allgemeines.html">Allgemeines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architektur.html">Architektur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fazit.html">Fazit</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementierung</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../implementation/face-services/index.html">Gesichtererkennung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../implementation/image-processing/index.html">Bildbearbeitung</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Demo</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../demo/index.html">Allgemeines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo/webdemo.html">Übersicht</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../demo/api.html">API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Technologie Stack</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../tech-stack/docker.html">Docker</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Architektur</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../architecture/index.html">Architektur</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Nützliche Links</span></p>
 <ul>
@@ -155,7 +164,9 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Allgemeines</li>
+          <li><a href="../contents.html">Inhaltsverzeichnis</a> &raquo;</li>
+        
+      <li>Projektarbeit</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -174,18 +185,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="allgemeines">
-<h1>Allgemeines<a class="headerlink" href="#allgemeines" title="Link zu dieser Überschrift">¶</a></h1>
+  <div class="section" id="projektarbeit">
+<h1>Projektarbeit<a class="headerlink" href="#projektarbeit" title="Link zu dieser Überschrift">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<p>Im Rahmen der Projektarbeit der Gruppe 7 im WS19/20 sollten folgende Funktionalitäten in Form von
-serverseitigen Services bereitgestellt werden:</p>
-<ul class="simple">
-<li><p>Erkennen/Trainieren der Gesichter in angegebenen Bildern</p></li>
-<li><p>Wiedererkennung von Personen basierend auf vorhandenen Trainingsdaten</p></li>
-<li><p>Ermitteln von Begrenzungsboxen zu erkannten Gesichtern</p></li>
-<li><p>Die Verarbeitung von Bildern zur Anwendung verschiedener Effekte</p></li>
-</ul>
 </div>
 
 
@@ -196,10 +199,10 @@ serverseitigen Services bereitgestellt werden:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="architektur.html" class="btn btn-neutral float-right" title="Architektur" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="allgemeines.html" class="btn btn-neutral float-right" title="Allgemeines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral float-left" title="Willkommen zur technischen Dokumentation des Gesichtserkennungsprojekts der Gruppe 7 im WS19/20" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../contents.html" class="btn btn-neutral float-left" title="Inhaltsverzeichnis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

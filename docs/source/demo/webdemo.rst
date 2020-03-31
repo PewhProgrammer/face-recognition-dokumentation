@@ -22,7 +22,9 @@ Demo Video
         <source src="../_static/videos/Projektarbeit-demo-2020.mp4" type="video/mp4">
     </video>
 
+.. note::
 
+    Das Video ist nur auf der HTML Version der Dokumentation sichtbar. PDF unterstützt kein Video-Format.
 
 Setup
 ++++++++++++++++++++++

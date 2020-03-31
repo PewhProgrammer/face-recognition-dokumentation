@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
     <link rel="search" title="Suche" href="search.html" />
-    <link rel="next" title="Allgemeines" href="projektarbeit/index.html" /> 
+    <link rel="next" title="Allgemeines" href="projektarbeit/allgemeines.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -82,7 +82,7 @@
             
               <p class="caption"><span class="caption-text">Projektarbeit</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="projektarbeit/index.html">Allgemeines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projektarbeit/allgemeines.html">Allgemeines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="projektarbeit/architektur.html">Architektur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="projektarbeit/fazit.html">Fazit</a></li>
 </ul>
@@ -169,60 +169,81 @@
             
   <div class="section" id="willkommen-zur-technischen-dokumentation-des-gesichtserkennungsprojekts-der-gruppe-7-im-ws19-20">
 <h1>Willkommen zur technischen Dokumentation des Gesichtserkennungsprojekts der Gruppe 7 im WS19/20<a class="headerlink" href="#willkommen-zur-technischen-dokumentation-des-gesichtserkennungsprojekts-der-gruppe-7-im-ws19-20" title="Link zu dieser Überschrift">¶</a></h1>
-<p>Allgemeines:</p>
 <div class="toctree-wrapper compound">
-</div>
-<p>Im Rahmen der Projektarbeit der Gruppe 7 im WS19/20 sollten folgende Funktionalitäten in Form von
-serverseitigen Services bereitgestellt werden:</p>
-<ul class="simple">
-<li><p>Erkennen/Trainieren der Gesichter in angegebenen Bildern</p></li>
-<li><p>Wiedererkennung von Personen basierend auf vorhandenen Trainingsdaten</p></li>
-<li><p>Ermitteln von Begrenzungsboxen zu erkannten Gesichtern</p></li>
-<li><p>Die Verarbeitung von Bildern zur Anwendung verschiedener Effekte</p></li>
+<p class="caption"><span class="caption-text">Projektarbeit</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="projektarbeit/allgemeines.html">Allgemeines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="projektarbeit/allgemeines.html#ubersicht">Übersicht</a></li>
 </ul>
-<p>Zu diesem Zweck wurden die folgenden 3 Services und eine Demo Applikation zur Nutzung dieser entwickelt:</p>
-<div class="section" id="face-box">
-<h2>face-box<a class="headerlink" href="#face-box" title="Link zu dieser Überschrift">¶</a></h2>
-<p>MQTT basierter Node.js Service für Berechnung und Austausch von Gesichtsrahmenboxen.</p>
-<p><a class="reference internal" href="implementation/face-services/face-box/index.html"><span class="doc">Getting Started</span></a></p>
-<div class="toctree-wrapper compound">
-</div>
-</div>
-<div class="section" id="face-recognition">
-<h2>face-recognition<a class="headerlink" href="#face-recognition" title="Link zu dieser Überschrift">¶</a></h2>
-<p>MQTT basierter Node.js Service zur</p>
-<ul class="simple">
-<li><p>Berechnung und Speicherung von Gesichtsdeskriptoren</p></li>
-<li><p>Wiedererkennung von Personen auf Basis der Trainingsdaten</p></li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="projektarbeit/architektur.html">Architektur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projektarbeit/fazit.html">Fazit</a></li>
 </ul>
-<p><a class="reference internal" href="implementation/face-services/face-recognition/index.html"><span class="doc">Getting started</span></a></p>
 </div>
-<div class="section" id="image-processing">
-<h2>image-processing<a class="headerlink" href="#image-processing" title="Link zu dieser Überschrift">¶</a></h2>
-<p>MQTT basierter python Service zur Verarbeitung von Bildern. Unterstützte Effekte:</p>
-<ul class="simple">
-<li><p>Black-and-White (Oreo)</p></li>
-<li><p>Cropping</p></li>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Implementierung</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="implementation/face-services/index.html">Gesichtererkennung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="implementation/face-services/tech-stack/index.html">Technologie</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="implementation/face-services/tech-stack/index.html#node-js">Node.js</a></li>
 </ul>
-<p><a class="reference internal" href="implementation/image-processing/index.html"><span class="doc">Getting started</span></a></p>
-</div>
-<div class="section" id="demo">
-<h2>Demo<a class="headerlink" href="#demo" title="Link zu dieser Überschrift">¶</a></h2>
-<p>HTML/CSS/JS basierte Demo-Applikation zur Demonstration der Funktionalitäten der 3 Services</p>
-<p><a class="reference internal" href="demo/webdemo.html"><span class="doc">Getting started</span></a></p>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-</div>
-</div>
-<div class="section" id="nutzliche-links">
-<h1>Nützliche Links<a class="headerlink" href="#nutzliche-links" title="Link zu dieser Überschrift">¶</a></h1>
-<div class="toctree-wrapper compound">
-</div>
-<ul class="simple">
-<li><p><a class="reference internal" href="help.html"><span class="doc">Kontakt</span></a></p></li>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="implementation/face-services/face-box/index.html">face-box</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="implementation/face-services/face-box/index.html#evaluation">Evaluation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementation/face-services/face-box/index.html#bounding-box-berechnen">Bounding Box Berechnen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementation/face-services/face-box/index.html#visuelle-darstellung-in-form-eines-rechtecks">Visuelle Darstellung in Form eines Rechtecks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementation/face-services/face-box/index.html#api">API</a></li>
 </ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="implementation/face-services/face-recognition/index.html">face-recognition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="implementation/face-services/face-recognition/index.html#evaluation">Evaluation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementation/face-services/face-recognition/index.html#trainieren-von-gesichtern">Trainieren von Gesichtern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementation/face-services/face-recognition/index.html#wiedererkennung-von-gesichtern">Wiedererkennung von Gesichtern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementation/face-services/face-recognition/index.html#api">API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="implementation/image-processing/index.html">Bildbearbeitung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="implementation/image-processing/tech-stack/index.html">Technologie</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="implementation/image-processing/tech-stack/index.html#python">Python</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="implementation/image-processing/black-and-white/index.html">Black-and-White Service (Oreo service)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="implementation/image-processing/black-and-white/index.html#evaluation">Evaluation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementation/image-processing/black-and-white/index.html#schwarz-weisz-berechnung">Schwarz-Weiß-Berechnung</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementation/image-processing/black-and-white/index.html#api">API</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="implementation/image-processing/cropping/index.html">Cropping Service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="implementation/image-processing/cropping/index.html#evaluation">Evaluation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementation/image-processing/cropping/index.html#cropping">Cropping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementation/image-processing/cropping/index.html#api">API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Demo</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="demo/webdemo.html">Übersicht</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="demo/webdemo.html#demo-video">Demo Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demo/webdemo.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demo/webdemo.html#use-case">Use Case</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="demo/api.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="demo/api.html#rest-api">REST API</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
 </div>
 
 
@@ -233,7 +254,7 @@ serverseitigen Services bereitgestellt werden:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="projektarbeit/index.html" class="btn btn-neutral float-right" title="Allgemeines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="projektarbeit/allgemeines.html" class="btn btn-neutral float-right" title="Allgemeines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
