@@ -17,6 +17,7 @@ Willkommen zur technischen Dokumentation des Gesichtserkennungsprojekts der Grup
 
    projektarbeit/allgemeines
    projektarbeit/architektur
+   projektarbeit/fazit
 
 .. toctree::
    :maxdepth: 3

@@ -7,7 +7,6 @@ Inhaltsverzeichnis
 
    projektarbeit/allgemeines
    projektarbeit/architektur
-   projektarbeit/fazit
 
 .. toctree::
    :maxdepth: 3
