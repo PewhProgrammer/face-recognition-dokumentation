@@ -3,11 +3,9 @@ Inhaltsverzeichnis
 
 .. toctree::
    :maxdepth: 3
-   :caption: Projektarbeit-contents
+   :caption: Projektarbeit
 
-   projektarbeit/allgemeines
-   projektarbeit/architektur
-   projektarbeit/fazit
+   projektarbeit/index
    implementation/index
 
 .. toctree::
