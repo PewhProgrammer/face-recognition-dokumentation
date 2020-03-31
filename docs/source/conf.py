@@ -64,5 +64,4 @@ html_static_path = ['_static']
 
 html_context = {
     'author': 'My Name',
-    'date': datetime.date.today().strftime('%d/%m/%y'),
 }
