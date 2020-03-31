@@ -17,7 +17,6 @@ Willkommen zur technischen Dokumentation des Gesichtserkennungsprojekts der Grup
 
    projektarbeit/allgemeines
    projektarbeit/architektur
-   projektarbeit/fazit
 
 .. toctree::
    :maxdepth: 3
@@ -36,7 +35,6 @@ Willkommen zur technischen Dokumentation des Gesichtserkennungsprojekts der Grup
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
    :caption: Technologie Stack
 
    tech-stack/docker
