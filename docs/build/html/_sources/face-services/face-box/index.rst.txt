@@ -64,6 +64,20 @@ Hier ist ein beispielhaftes Abbild von der Funktionalität der face-api.js.
     Face-box gibt nur die Bounding-Box aus und nicht die im Bild demonstrierten Features.
     Der Usecase kann aber nach Bedarf erweitert werden, da das Framework dies bereits zur Verfügung stellt.
 
+.. image:: ../../_static/images/angela.png
+   :width: 300
+
+.. image:: ../../_static/images/brad_2.png
+   :width: 240
+
+.. image:: ../../_static/images/brad.png
+   :width: 300
+
+.. note::
+
+    Der Dienst erkennt alle Personen aber zeichnet nur die Bounding Box, um das Gesicht mit der höchsten Vertrauenspunktzahl. Zum Beispiel hat die rechte Person einen Score von 
+    0.87, während die linke Person einen Score von 0.78 hat. Somit wird das Gesicht der rechten Person umrahmt.
+
 API
 ++++
 .. toctree::

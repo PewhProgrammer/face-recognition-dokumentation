@@ -1,5 +1,5 @@
-Image-Processing
-=============
+Bildbearbeitung
+===================
 .. toctree::
   :maxdepth: 3
 

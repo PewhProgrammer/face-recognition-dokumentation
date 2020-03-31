@@ -1,5 +1,5 @@
-Face Services
-==========
+Gesichtererkennung
+========================
 .. toctree::
   :maxdepth: 3
 

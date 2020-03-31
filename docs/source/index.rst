@@ -3,8 +3,25 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+:Authors: - Me
+          - Myself
+          - I
+
 Willkommen zur technischen Dokumentation des Gesichtserkennungsprojekts der Gruppe 7 im WS19/20
 ==============================================================================================================
+
+Allgemeines:
+
+.. toctree::
+   :maxdepth: 3
+   :hidden:
+   :caption: Projektarbeit
+
+   projektarbeit/index
+   projektarbeit/architektur
+   projektarbeit/fazit
+
+
 Im Rahmen der Projektarbeit der Gruppe 7 im WS19/20 sollten folgende Funktionalitäten in Form von
 serverseitigen Services bereitgestellt werden:
 
@@ -24,7 +41,7 @@ MQTT basierter Node.js Service für Berechnung und Austausch von Gesichtsrahmenb
 .. toctree::
    :maxdepth: 3
    :hidden:
-   :caption: Projekte
+   :caption: Implementierung
 
    face-services/index
    image-processing/index
@@ -59,7 +76,7 @@ HTML/CSS/JS basierte Demo-Applikation zur Demonstration der Funktionalitäten de
    :hidden:
    :caption: Demo
 
-   demo/webdemo
+   demo/index
    demo/api
 
 .. toctree::
@@ -69,12 +86,6 @@ HTML/CSS/JS basierte Demo-Applikation zur Demonstration der Funktionalitäten de
 
    tech-stack/docker
 
-.. toctree::
-   :maxdepth: 2
-   :hidden:
-   :caption: Architektur
-
-   architecture/index
 
 Nützliche Links
 ==================

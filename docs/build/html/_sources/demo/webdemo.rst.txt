@@ -1,17 +1,32 @@
-Usage
-=============
 
-Die Demo-Anwendung wurde im Rahmen der Projektarbeit als visueller Prototyp entwickelt, um die Features der
-Backend-Services darzustellen. Die visuelle Darstellung des Interfaces ist frei wählbar und flexibel. Das Augenmerk
-soll auf der Schnittstelle und den Services liegen. Die Demo-Anwendung kann benutzt werden, um die Interaktion mit dem 
-Backend besser nachzuvollziehen und eine Anwendung für den Produktionsbetrieb zu entwickeln.
+Setup
+++++++++++++++++++++++
 
-.. note::
+Die Demo-Anwendung wurde entwickelt um die Schnittstellen der folgenden Services zu testen:
 
-    Zur Zeit der Abnahme wurde nur der Image-Processing Service in das Frontend des Projektes der Gruppe 6 integriert.
+* face-box
+* face-recognition
+* image-processing
 
-Um die Anwendung zu starten, muss man die Docker-Services mit unserer ``docker-compose.yml``
-starten und das Interface über ``localhost:4321`` via Browser öffnen.
+Die Browser-basierte Anwendung wird durch Nodejs betrieben, die mithilfe der MQTT Schnittstelle und der Anbindung zum MinIO Storage, die Funktionalität der Services
+ausführen kann. Zusätzlich wird eine Postgre-Datenbank betrieben, um die personenbezogenen Daten abzuspeichern und diese durch die Wiedererkennung des Gesichts abrufbar zu machen. 
+Die Datenbank läuft über eine vorgefertigtes Docker Image mit minimaler Konfiguration und vordefiniertem SQL Schemata:
+
+
+.. sourcecode:: docker
+
+    FROM postgres:10
+    ENV POSTGRES_PASSWORD postgres 
+    ENV POSTGRES_DB testdb 
+
+    COPY ./database/postgresql.conf /etc/postgresql/postgresql.conf
+    COPY ./database/init.sql /docker-entrypoint-initdb.d/
+
+    CMD ["postgres", "-c", "config_file=/etc/postgresql/postgresql.conf"]
+
+
+.. image:: ../_static/images/postgre.png
+   :width: 600
 
 Use Case
 ++++++++++++++++++++++
@@ -42,6 +57,9 @@ Use Case
 
     Der Nutzer kann nun seine Daten eingeben und sich für die Anwendung `registrieren` lassen.
 
+.. image:: ../_static/images/demo_detection.png
+   :width: 600
+
 
 5. 
     Der Nutzer sendet das Formular ab.
@@ -57,10 +75,6 @@ Use Case
 Der Nutzer kann nun die Anwendung auf einem anderen Computer verwenden, um sein Gesicht zu erkennen
 und seine Personendaten abzurufen beziehungsweise ausdrucken zu lassen.
 
-Demo Video
-++++++++++++++++++
-.. raw:: html
+.. image:: ../_static/images/demo_recognition.png
+   :width: 600
 
-    <video width="700" height="610" controls>
-        <source src="../_static/videos/Projektarbeit-demo-2020.mp4" type="video/mp4">
-    </video>

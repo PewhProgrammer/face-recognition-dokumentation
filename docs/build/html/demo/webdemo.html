@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Usage &mdash; ERL Face Box / Recognition &amp; Image Processing v1.0 Dokumentation</title>
+  <title>Setup &mdash; ERL Face Box / Recognition &amp; Image Processing v1.0 Dokumentation</title>
   
 
   
@@ -37,7 +37,7 @@
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="API" href="api.html" />
-    <link rel="prev" title="MQTT API" href="../image-processing/cropping/api.html" /> 
+    <link rel="prev" title="Allgemeines" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -88,9 +88,11 @@
 </ul>
 <p class="caption"><span class="caption-text">Demo</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Allgemeines</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#use-case">Use Case</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#demo-video">Demo Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#demo-video">Demo Video</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
@@ -151,7 +153,9 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Usage</li>
+          <li><a href="index.html">Allgemeines</a> &raquo;</li>
+        
+      <li>Setup</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -170,20 +174,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="usage">
-<h1>Usage<a class="headerlink" href="#usage" title="Link zu dieser Überschrift">¶</a></h1>
-<p>Die Demo-Anwendung wurde im Rahmen der Projektarbeit als visueller Prototyp entwickelt, um die Features der
-Backend-Services darzustellen. Die visuelle Darstellung des Interfaces ist frei wählbar und flexibel. Das Augenmerk
-soll auf der Schnittstelle und den Services liegen. Die Demo-Anwendung kann benutzt werden, um die Interaktion mit dem
-Backend besser nachzuvollziehen und eine Anwendung für den Produktionsbetrieb zu entwickeln.</p>
-<div class="admonition note">
-<p class="admonition-title">Bemerkung</p>
-<p>Zur Zeit der Abnahme wurde nur der Image-Processing Service in das Frontend des Projektes der Gruppe 6 integriert.</p>
+  <div class="section" id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Die Demo-Anwendung wurde entwickelt um die Schnittstellen der folgenden Services zu testen:</p>
+<ul class="simple">
+<li><p>face-box</p></li>
+<li><p>face-recognition</p></li>
+<li><p>image-processing</p></li>
+</ul>
+<p>Die Browser-basierte Anwendung wird durch Nodejs betrieben, die mithilfe der MQTT Schnittstelle und der Anbindung zum MinIO Storage, die Funktionalität der Services
+ausführen kann. Zusätzlich wird eine Postgre-Datenbank betrieben, um die personenbezogenen Daten abzuspeichern und diese durch die Wiedererkennung des Gesichts abrufbar zu machen.
+Die Datenbank läuft über eine vorgefertigtes Docker Image mit minimaler Konfiguration und vordefiniertem SQL Schemata:</p>
+<div class="highlight-docker notranslate"><div class="highlight"><pre><span></span><span class="k">FROM</span> <span class="s">postgres:10</span>
+<span class="k">ENV</span> POSTGRES_PASSWORD postgres
+<span class="k">ENV</span> POSTGRES_DB testdb
+
+<span class="k">COPY</span> ./database/postgresql.conf /etc/postgresql/postgresql.conf
+<span class="k">COPY</span> ./database/init.sql /docker-entrypoint-initdb.d/
+
+<span class="k">CMD</span> <span class="p">[</span><span class="s2">&quot;postgres&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;config_file=/etc/postgresql/postgresql.conf&quot;</span><span class="p">]</span>
+</pre></div>
 </div>
-<p>Um die Anwendung zu starten, muss man die Docker-Services mit unserer <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code>
-starten und das Interface über <code class="docutils literal notranslate"><span class="pre">localhost:4321</span></code> via Browser öffnen.</p>
+<a class="reference internal image-reference" href="../_images/postgre.png"><img alt="../_images/postgre.png" src="../_images/postgre.png" style="width: 600px;" /></a>
+</div>
 <div class="section" id="use-case">
-<h2>Use Case<a class="headerlink" href="#use-case" title="Link zu dieser Überschrift">¶</a></h2>
+<h1>Use Case<a class="headerlink" href="#use-case" title="Link zu dieser Überschrift">¶</a></h1>
 <ol class="arabic">
 <li><p>Der Nutzer drückt auf Start Recognition.</p>
 <p>Das Frontend öffnet einen <code class="docutils literal notranslate"><span class="pre">Webcam-Stream</span></code> und schickt eine <code class="docutils literal notranslate"><span class="pre">Facebox-Anfrage</span></code> an den Facebox Service.</p>
@@ -204,6 +219,9 @@ in einem Formular angezeigt und der Workflow ist abgeschlossen.</p>
 <li><p>Das Frontend zeigt ein Formular an.</p>
 <p>Der Nutzer kann nun seine Daten eingeben und sich für die Anwendung <cite>registrieren</cite> lassen.</p>
 </li>
+</ol>
+<a class="reference internal image-reference" href="../_images/demo_detection.png"><img alt="../_images/demo_detection.png" src="../_images/demo_detection.png" style="width: 600px;" /></a>
+<ol class="arabic" start="5">
 <li><p>Der Nutzer sendet das Formular ab.</p>
 <p>Das Frontend schickt eine <code class="docutils literal notranslate"><span class="pre">REST</span> <span class="pre">Anfrage</span></code> mit den Personendaten in das Backend
 und nimmt parallel Bilder für das Training der Face-recognition Service.</p>
@@ -212,12 +230,7 @@ und nimmt parallel Bilder für das Training der Face-recognition Service.</p>
 </ol>
 <p>Der Nutzer kann nun die Anwendung auf einem anderen Computer verwenden, um sein Gesicht zu erkennen
 und seine Personendaten abzurufen beziehungsweise ausdrucken zu lassen.</p>
-</div>
-<div class="section" id="demo-video">
-<h2>Demo Video<a class="headerlink" href="#demo-video" title="Link zu dieser Überschrift">¶</a></h2>
-<video width="700" height="610" controls>
-    <source src="../_static/videos/Projektarbeit-demo-2020.mp4" type="video/mp4">
-</video></div>
+<a class="reference internal image-reference" href="../_images/demo_recognition.png"><img alt="../_images/demo_recognition.png" src="../_images/demo_recognition.png" style="width: 600px;" /></a>
 </div>
 
 
@@ -231,7 +244,7 @@ und seine Personendaten abzurufen beziehungsweise ausdrucken zu lassen.</p>
         <a href="api.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../image-processing/cropping/api.html" class="btn btn-neutral float-left" title="MQTT API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Allgemeines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
