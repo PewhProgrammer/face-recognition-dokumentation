@@ -37,7 +37,7 @@
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="API" href="api.html" />
-    <link rel="prev" title="Demo" href="index.html" /> 
+    <link rel="prev" title="MQTT API" href="../implementation/image-processing/cropping/api.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -97,7 +97,11 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Übersicht</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#demo-video">Demo Video</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#use-case">Use Case</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-case">Use Case</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#face-box-und-face-recognition">face-box und face-recognition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#image-processing">image-processing</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
@@ -154,10 +158,6 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../projektarbeit/allgemeines.html">Allgemeines</a> &raquo;</li>
-        
-          <li><a href="index.html">Demo</a> &raquo;</li>
-        
       <li>Übersicht</li>
     
     
@@ -204,7 +204,7 @@ starten und das Interface über <code class="docutils literal notranslate"><span
 <ul class="simple">
 <li><p>face-box</p></li>
 <li><p>face-recognition</p></li>
-<li><p>image-processing</p></li>
+<li><p>image-processing (Web-Version des Schwarz-Weiß-Service)</p></li>
 </ul>
 <p>Die Browser-basierte Anwendung wird durch Nodejs betrieben, die mithilfe der MQTT Schnittstelle und der Anbindung zum MinIO Storage, die Funktionalität der Services
 ausführen kann. Zusätzlich wird eine Postgre-Datenbank betrieben, um die personenbezogenen Daten abzuspeichern und diese durch die Wiedererkennung des Gesichts abrufbar zu machen.
@@ -223,6 +223,8 @@ Die Datenbank läuft über eine vorgefertigtes Docker Image mit minimaler Konfig
 </div>
 <div class="section" id="use-case">
 <h2>Use Case<a class="headerlink" href="#use-case" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="section" id="face-box-und-face-recognition">
+<h3>face-box und face-recognition<a class="headerlink" href="#face-box-und-face-recognition" title="Link zu dieser Überschrift">¶</a></h3>
 <ol class="arabic">
 <li><p>Der Nutzer drückt auf Start Recognition.</p>
 <p>Das Frontend öffnet einen <code class="docutils literal notranslate"><span class="pre">Webcam-Stream</span></code> und schickt eine <code class="docutils literal notranslate"><span class="pre">Facebox-Anfrage</span></code> an den Facebox Service.</p>
@@ -256,6 +258,25 @@ und nimmt parallel Bilder für das Training der Face-recognition Service.</p>
 und seine Personendaten abzurufen beziehungsweise ausdrucken zu lassen.</p>
 <a class="reference internal image-reference" href="../_images/demo_recognition.png"><img alt="../_images/demo_recognition.png" src="../_images/demo_recognition.png" style="width: 600px;" /></a>
 </div>
+<div class="section" id="image-processing">
+<h3>image-processing<a class="headerlink" href="#image-processing" title="Link zu dieser Überschrift">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Aufrufen der Applikation über Navigationsleiste</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/demo_i-p_init.png"><img alt="../_images/demo_i-p_init.png" src="../_images/demo_i-p_init.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="2">
+<li><p>Bild hochladen über File-Uploader</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/demo_i-p_upload_done.png"><img alt="../_images/demo_i-p_upload_done.png" src="../_images/demo_i-p_upload_done.png" style="width: 600px;" /></a>
+<ol class="arabic" start="2">
+<li><p>Bild-Operation ausführen</p>
+<p>Zunächst die gewünschte Threshold-Variante per Selectbox auswählen.
+Anschließend kann mit dem Slider die Bearbeitung durchgeführt werden.</p>
+</li>
+</ol>
+<a class="reference internal image-reference" href="../_images/demo_i-p_simple_done.png"><img alt="../_images/demo_i-p_simple_done.png" src="../_images/demo_i-p_simple_done.png" style="width: 600px;" /></a>
+</div>
+</div>
 </div>
 
 
@@ -269,7 +290,7 @@ und seine Personendaten abzurufen beziehungsweise ausdrucken zu lassen.</p>
         <a href="api.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="Demo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../implementation/image-processing/cropping/api.html" class="btn btn-neutral float-left" title="MQTT API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

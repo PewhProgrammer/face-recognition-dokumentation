@@ -162,10 +162,6 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../../projektarbeit/allgemeines.html">Allgemeines</a> &raquo;</li>
-        
-          <li><a href="../../index.html">Implementierung</a> &raquo;</li>
-        
           <li><a href="../index.html">Bildbearbeitung</a> &raquo;</li>
         
           <li><a href="index.html">Black-and-White Service (Oreo service)</a> &raquo;</li>
@@ -213,29 +209,69 @@ Alle <code class="docutils literal notranslate"><span class="pre">Endpunkte</spa
     <span class="nt">&quot;crop&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="nt">&quot;targetWidthPx&quot;</span><span class="p">:</span> <span class="mi">600</span><span class="p">,</span>
     <span class="nt">&quot;targetHeightPx&quot;</span><span class="p">:</span> <span class="mi">600</span><span class="p">,</span>
-    <span class="nt">&quot;methods&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;Simple&quot;</span><span class="p">:</span> <span class="mi">150</span>
-        <span class="p">},{</span>
-            <span class="nt">&quot;Adaptive_Mean&quot;</span><span class="p">:</span> <span class="mi">200</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;Adaptive_Gaussian&quot;</span><span class="p">:</span> <span class="mi">250</span>
+    <span class="nt">&quot;methods&quot;</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="nt">&quot;algorithm&quot;</span><span class="p">:</span> <span class="s2">&quot;SIMPLE_THRESH&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;options&quot;</span><span class="p">:</span> <span class="p">{</span>
+             <span class="nt">&quot;thresh&quot;</span><span class="p">:</span> <span class="mi">147</span><span class="p">,</span>
+             <span class="nt">&quot;maxVal&quot;</span><span class="p">:</span> <span class="mi">255</span><span class="p">,</span>
+             <span class="nt">&quot;invertThresh&quot;</span><span class="p">:</span> <span class="kc">false</span>
         <span class="p">}</span>
-    <span class="p">]</span>
+    <span class="p">},{</span>
+        <span class="nt">&quot;algorithm&quot;</span><span class="p">:</span> <span class="s2">&quot;ADAPTIVE_MEAN&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;options&quot;</span><span class="p">:</span> <span class="p">{</span>
+             <span class="nt">&quot;blockSize&quot;</span><span class="p">:</span> <span class="mi">147</span><span class="p">,</span>
+             <span class="nt">&quot;constantVal&quot;</span><span class="p">:</span> <span class="mi">255</span><span class="p">,</span>
+             <span class="nt">&quot;invertThresh&quot;</span><span class="p">:</span> <span class="kc">false</span>
+        <span class="p">}</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;algorithm&quot;</span><span class="p">:</span> <span class="s2">&quot;ADAPTIVE_GAUSSIAN&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;options&quot;</span><span class="p">:</span> <span class="p">{</span>
+             <span class="nt">&quot;blockSize&quot;</span><span class="p">:</span> <span class="mi">147</span><span class="p">,</span>
+             <span class="nt">&quot;constantVal&quot;</span><span class="p">:</span> <span class="mi">255</span><span class="p">,</span>
+             <span class="nt">&quot;invertThresh&quot;</span><span class="p">:</span> <span class="kc">false</span>
+        <span class="p">}</span>
+    <span class="p">}]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
+<p><strong>Parameter</strong></p>
+<dl class="simple">
+<dt>requestUuid</dt><dd><p>Unique-Identifier für einen Request.</p>
+</dd>
+<dt>messageType</dt><dd><p>Identifiziert den Typen der Nachricht.</p>
+</dd>
+<dt>bucket</dt><dd><p>Name des MinIo Buckets, indem sich das Original-Bild befindet.</p>
+</dd>
+<dt>path</dt><dd><p>Pfad innerhalb des Buckets zu dem Bild.</p>
+</dd>
+<dt>imageName</dt><dd><p>Name des Bildes. Dieser Name wird in den erzeugten Bildern wieder verwendet.</p>
+</dd>
+<dt>mime</dt><dd><p>Mime-Type des Bildes.</p>
+</dd>
+<dt>crop</dt><dd><p>Identifiziert, ob ein Bild zugeschnitten werden soll.</p>
+</dd>
+<dt>targetWidthPx<span class="classifier">int</span></dt><dd><p>Ziel-Breite des Bildes.</p>
+</dd>
+<dt>targetHeightPx<span class="classifier">int</span></dt><dd><p>Ziel-Höhe des Bildes.</p>
+</dd>
+<dt>methods</dt><dd><p><code class="docutils literal notranslate"><span class="pre">Optionales-Array</span></code> zur Konfiguration der einzelnen Algorithmen.</p>
+</dd>
+<dt>algorithm</dt><dd><p>Name des Algorithmus, zudem die Konfiguration gehört. Entweder <code class="docutils literal notranslate"><span class="pre">SIMPLE_THRESH</span></code>, <code class="docutils literal notranslate"><span class="pre">ADAPTIVE_GAUSSIAN</span></code> oder <code class="docutils literal notranslate"><span class="pre">ADAPTIVE_MEAN</span></code></p>
+</dd>
+<dt>thresh</dt><dd><p>Wert für Threshold-Value. Nur für <code class="docutils literal notranslate"><span class="pre">SIMPLE_THRESH</span></code>. Default-Value: <code class="docutils literal notranslate"><span class="pre">147</span></code>.</p>
+</dd>
+<dt>maxVal</dt><dd><p>Wert der für Pixel angewendet wird, die über dem Threshold liegen. Nur für <code class="docutils literal notranslate"><span class="pre">SIMPLE_THRESH</span></code>. Default-Value: <code class="docutils literal notranslate"><span class="pre">255</span></code></p>
+</dd>
+<dt>blockSize</dt><dd><p>Wert für blockSize. Nur für <code class="docutils literal notranslate"><span class="pre">ADAPTIVE_MEAN</span></code> und <code class="docutils literal notranslate"><span class="pre">ADAPTIVE_GAUSSIAN</span></code>. Default-Value: <code class="docutils literal notranslate"><span class="pre">3</span></code></p>
+</dd>
+<dt>constantVal</dt><dd><p>Wer für die Konstante C. Nur für <code class="docutils literal notranslate"><span class="pre">ADAPTIVE_MEAN</span></code> und <code class="docutils literal notranslate"><span class="pre">ADAPTIVE_GAUSSIAN</span></code>. Default-Value: <code class="docutils literal notranslate"><span class="pre">2</span></code></p>
+</dd>
+<dt>invertThresh</dt><dd><p>Gibt an, ob ein Threshold invertiert werden soll. Default-Value: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </dd>
 </dl>
-<div class="admonition note">
-<p class="admonition-title">Bemerkung</p>
-<p>Die crop-Property entscheidet, ob neben der Schwarz-Weiß-Berechnung auch ein Portraitfoto erzeugt werden soll. Die Schwarz-Weiß-Berechnung findet dann auf dem Portraitfoto statt.
-Das bedeutet es wird intern zunächst der Crop-Service aufgerufen und anschließend die Schwarz-Weiß-Berechnung durchgeführt.</p>
-</div>
-<dl class="field-list">
-<dt class="field-odd">SUBSCRIBE <cite>image-processing/results/oreo</cite></dt>
-<dd class="field-odd"><p>Auf diese topic publisht der Image-Processing Service seine Nachricht, wenn ein Schwarz-Weiß-Bild erzeugt wurde.</p>
+</dd>
+<dt class="field-even">SUBSCRIBE <cite>image-processing/results/oreo</cite></dt>
+<dd class="field-even"><p>Auf diese topic publisht der Image-Processing Service seine Nachricht, wenn ein Schwarz-Weiß-Bild erzeugt wurde.</p>
 <p><strong>Example request</strong>:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;originalRequestUuid&quot;</span><span class="p">:</span> <span class="s2">&quot;zf3fc95a-8697-4ff2-9fc4-50820873c5c0&quot;</span><span class="p">,</span>
@@ -256,6 +292,21 @@ Das bedeutet es wird intern zunächst der Crop-Service aufgerufen und anschließ
 <span class="p">}</span>
 </pre></div>
 </div>
+<p><strong>Parameter</strong></p>
+<dl class="simple">
+<dt>originalRequestUuid</dt><dd><p>Die Ursprüngliche <code class="docutils literal notranslate"><span class="pre">requestUuid</span></code> die dem Service beim Request mitgeteilt wurde.</p>
+</dd>
+<dt>messageType</dt><dd><p>Identifiziert den Typen der Nachricht.</p>
+</dd>
+<dt>oreos</dt><dd><p>Array mit den erstellten Bildern.</p>
+</dd>
+<dt>bucket</dt><dd><p>Name des MinIo Buckets, indem das  Bild abgelegt wurde.</p>
+</dd>
+<dt>path</dt><dd><p>Pfad innerhalb des Buckets zu dem Bild.</p>
+</dd>
+<dt>mime</dt><dd><p>Mime-Type des Bildes.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 <div class="admonition note">

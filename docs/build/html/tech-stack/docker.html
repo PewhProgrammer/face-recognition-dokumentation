@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Architektur" href="../projektarbeit/architektur.html" />
+    <link rel="next" title="Kontakt" href="../help.html" />
     <link rel="prev" title="API" href="../demo/api.html" /> 
 </head>
 
@@ -83,20 +83,8 @@
             
             
               <p class="caption"><span class="caption-text">Projektarbeit</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../projektarbeit/allgemeines.html">Allgemeines</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../projektarbeit/allgemeines.html#ubersicht">Übersicht</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../implementation/index.html">Implementierung</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../demo/index.html">Demo</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Docker</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#quick-start">Quick Start</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#configuration-docker-compose">Configuration: docker-compose</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../projektarbeit/allgemeines.html">Allgemeines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../projektarbeit/architektur.html">Architektur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../projektarbeit/fazit.html">Fazit</a></li>
 </ul>
@@ -170,8 +158,6 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../projektarbeit/allgemeines.html">Allgemeines</a> &raquo;</li>
         
       <li>Docker</li>
     
@@ -299,6 +285,30 @@ sollen besondere Konfigurationsmöglichkeiten gezeigt werden.</p>
         <span class="nt">MINIO_PORT</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9000</span>
     <span class="nt">logging</span><span class="p">:</span> <span class="nv">*default-logging</span>
 
+<span class="nt">image-processing</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">image-processing:latest</span>
+    <span class="nt">build</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.</span>
+    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gaia_image_processing</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+    <span class="nt">depends_on</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;mqtt_broker&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;minio&quot;</span>
+    <span class="nt">environment</span><span class="p">:</span>
+        <span class="nt">MINIO_HOST</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">minio:9000</span>
+        <span class="nt">MINIO_SECURE</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="nt">MINIO_ACCESS_KEY</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">xQC2dV7ohZmUaz1Fxz0bKLzDeaGS1WXF</span>
+        <span class="nt">MINIO_SECRET_KEY</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gioVfeVp4Qus4wWBk0ITvKrzebu8xcMB</span>
+        <span class="nt">MINIO_BUCKET</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">image-processing</span>
+
+        <span class="nt">MQTT_BROKER_ADDRESS</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mqtt_broker</span>
+        <span class="nt">MQTT_CLIENT_ID</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">image-processing-client</span>
+        <span class="nt">MQTT_MAIN_TOPIC</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">image-processing/actions/#</span>
+        <span class="nt">MQTT_OREO_SUB_TOPIC</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">image-processing/actions/oreo</span>
+        <span class="nt">MQTT_CROP_SUB_TOPIC</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">image-processing/actions/crop</span>
+        <span class="nt">MQTT_OREO_RESULT_TOPIC</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">image-processing/results/oreo</span>
+        <span class="nt">MQTT_CROP_RESULT_TOPIC</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">image-processing/results/crop</span>
+    <span class="nt">logging</span><span class="p">:</span> <span class="nv">*default-logging</span>
+
 <span class="nt">networks</span><span class="p">:</span>
 <span class="nt">gaia</span><span class="p">:</span>
     <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gaia-network_mode</span>
@@ -351,7 +361,7 @@ Die jeweils anderen Services liegen in anderen repositories, weswegen sie stattd
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../projektarbeit/architektur.html" class="btn btn-neutral float-right" title="Architektur" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../help.html" class="btn btn-neutral float-right" title="Kontakt" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../demo/api.html" class="btn btn-neutral float-left" title="API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -45,18 +45,23 @@ Der face-recognition Service unterstützt das Trainieren von Gesichtern.
 Hierzu wird versucht das größte / deutlichste Gesicht in einem Bild zu erkennen.
 Das Bild muss dazu unter /face-recognition/train-images/<label>/<image-name> auf MinIO abgelegt und sein
 Name anhand der jeweiligen MQTT Message übergeben werden.
-Falls ein Gesicht erkannt wird, wird außerdem ein Facedeskriptor bestehend aus 128 Float-Werten
-ermittelt, der später für die Wiedererkennung benötigt wird. Ermittelte Deskriptoren werden
-als /face-recognition/descriptors/<label> abgelegt. Bei Erfolg wird auf dem entsprechenden
+Falls ein Gesicht erkannt wird, werden 68-Punkt Face Landmarks dafür berechnet und in einem Folgeschritt schließlich ein Facedeskriptor
+bestehend aus 128 Float-Werten, der später für die Wiedererkennung benötigt wird.
+Ermittelte Deskriptoren werden als /face-recognition/descriptors/<label> abgelegt. Bei Erfolg wird auf dem entsprechenden
 MQTT topic der ermittelte Score für das Gesicht publiziert, ansonsten eine Fehlermeldung.
+
+Beispiel für 68-Punkt Face Landmarks:
+
+.. image:: ../../../_static/images/face-landmarks.jpg
+   :width: 600
 
 Wiedererkennung von Gesichtern
 ---------------------------------
 Auf Basis zuvor trainierter Gesichter können Personen wiedererkannt werden.
 Hierfür wird ein Bild auf MinIO unter /face-recognition/query-images/<image-name>
 abgelegt und sein Name über die entsprechende MQTT Message übergeben.
-Dann wird zum übermittelten Bild der Facedeskriptor ermittelt und anhand einer Distanzformel mit
-gespeicherten Deskriptoren verglichen. Wird bei den Vergleichen eine bestimmte Distanz unterschritten,
+Dann wird zum übermittelten Bild der Facedeskriptor ermittelt, der mit Hilfe des Euklidischen Abstands (Euclidian Distance) mit
+gespeicherten Deskriptoren verglichen wird. Wird bei den Vergleichen eine bestimmte Distanz unterschritten,
 so wird das Label des entsprechenden Bilds über MQTT ausgegeben. Sollte keine Person wiedererkannt werden
 wird eine Fehlermeldung gesendet.
 

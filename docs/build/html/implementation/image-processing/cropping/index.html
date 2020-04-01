@@ -94,7 +94,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../tech-stack/index.html">Technologie</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../black-and-white/index.html">Black-and-White Service (Oreo service)</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Cropping Service</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#evaluation">Evaluation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#evaluation">Evaluation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#haar-cascade-face-detector-in-opencv">Haar Cascade Face Detector in OpenCV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deep-learning-basierter-face-detector-in-opencv">Deep Learning basierter Face Detector in OpenCV</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#cropping">Cropping</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#api">API</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="api.html">MQTT API</a></li>
@@ -162,10 +166,6 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../../projektarbeit/allgemeines.html">Allgemeines</a> &raquo;</li>
-        
-          <li><a href="../../index.html">Implementierung</a> &raquo;</li>
-        
           <li><a href="../index.html">Bildbearbeitung</a> &raquo;</li>
         
       <li>Cropping Service</li>
@@ -195,35 +195,56 @@ entsprechend zugeschnitten sein müssen. Des Weiteren muss die Auflösung des Po
 für die Eingravierung zuständig ist, die Bilder in dem Format 600x600px benötigt.</p>
 <div class="section" id="evaluation">
 <h2>Evaluation<a class="headerlink" href="#evaluation" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Für diesen Service wurde evaluiert, wie am effizientesten ein ROI (Range of Intereset) definiert werden kann.
-Der ROI für diesen Service definiert sich aus der Erkennung des Gesichts und einem Offset, da auf dem Porträtfoto
-Haare und Teil vom Hals zu sehen sein soll.</p>
-<p>Nach einer Recherche haben sich hierfür folgende Set-ups als möglichen Lösungsansatz definieren lassen:</p>
+<p>Für die Bildung des Porträtfotos muss zunächst ein ROI definiert werden. Dieser definiert sich in folgendem Anwendungsszenario aus dem Gesicht,
+sowie einem Offset, da auf dem Porträtfoto Haare und Teil vom Hals zu sehen sein sollen.
+Im Folgenden wird aufgeführt, für welchen Lösungsansatz wir uns entschieden haben, um eine zuverlässige Gesichtserkennung durchzuführen.</p>
+<p>Folgende Set-ups haben sich als möglichen Lösungsansatz definieren lassen:</p>
 <ol class="arabic simple">
 <li><p>Haar Cascade Face Detector in OpenCV</p></li>
 <li><p>Deep Learning basierter Face Detector in OpenCV</p></li>
 <li><p>HoG Face Detector in Dlib</p></li>
 <li><p>Deep Learning basierter Face Detector in Dlib</p></li>
 </ol>
+<p>Da bei Variante 3) und Variante 4) nur Gesichter mit einer Größe von &gt;= 80x80 erkannt werden können. Haben wir uns für explizit gegen diese entschieden.</p>
+<p>Die Varianten 1) und 2) werden nun mithilfe des folgenden Beispielbildes verglichen:</p>
+<a class="reference internal image-reference" href="../../../_images/girl1.jpg"><img alt="../../../_images/girl1.jpg" src="../../../_images/girl1.jpg" style="width: 600px;" /></a>
+<div class="section" id="haar-cascade-face-detector-in-opencv">
+<h3>Haar Cascade Face Detector in OpenCV<a class="headerlink" href="#haar-cascade-face-detector-in-opencv" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Die Haar Casecade Gesichtserkennung war seit seiner Vorstellung im Jahr 2001 für viele Jahre das State of the Art Verfahren, um eine Gesichtserkennung durchzuführen.
+Über die Jahre hinweg, wurde dieses Verfahren stetig verbessert. In OpenCv kann solch eine Erkennung sehr einfach durchgeführt werden, indem der hierfür entsprechenden Methode,
+ein Descriptor File als Parameter mitgegeben wird. Diese stellt Opencv ebenfalls zur Verfügung.</p>
+<p>Dabei konnten wir die besten Ergebnisse mit folgendem Descriptor File erzielen: <code class="docutils literal notranslate"><span class="pre">haarcascade_frontalface_alt.xml</span></code></p>
+<p>Mit diesem Verfahren konnte das Gesicht aus unserem Beispiel erfolgreich erkannt werden:</p>
+<a class="reference internal image-reference" href="../../../_images/haarcascade_girl.jpg"><img alt="../../../_images/haarcascade_girl.jpg" src="../../../_images/haarcascade_girl.jpg" style="width: 600px;" /></a>
+<p>Der Nachteil von diesem Ansatz ist jedoch, dass bei nicht frontal geschossenen Bilder, keine Gesichter erkannt werden.</p>
+</div>
+<div class="section" id="deep-learning-basierter-face-detector-in-opencv">
+<h3>Deep Learning basierter Face Detector in OpenCV<a class="headerlink" href="#deep-learning-basierter-face-detector-in-opencv" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Dieses Model wurde mit der Version 3.3 von OpenCv veröffentlicht. Es handelt sich um Single-Shot-Mutlibox detector, der eine ResNet-10 Architektur als Backbone verwendet.
+Das Model wurde basierend auf Bilder aus dem Internet trainiert. Leider wurde nicht bekannt gegeben, welche Bilder genau zum Trainieren verwendet wurden.</p>
+<p>Dieser Face Detector, kann mit zwei Models ausgeführt werden. Wir haben uns für die Float 16 Version der originalen caffee Implementierung entschieden.</p>
+<p>Mit diesem Verfahren konnte das Gesicht aus unserem Beispiel erfolgreich erkannt werden:</p>
+<a class="reference internal image-reference" href="../../../_images/dnn_girl.jpg"><img alt="../../../_images/dnn_girl.jpg" src="../../../_images/dnn_girl.jpg" style="width: 600px;" /></a>
+<p>Des Weiteren können mit diesem Lösungsansatz auch Gesichter erkannt werden, die seitlich fotografiert wurden:</p>
+<a class="reference internal image-reference" href="../../../_images/dnn_side.jpg"><img alt="../../../_images/dnn_side.jpg" src="../../../_images/dnn_side.jpg" style="width: 600px;" /></a>
 <div class="admonition note">
 <p class="admonition-title">Bemerkung</p>
-<p>Für einen genauen Vergleich der Lösungsansätze siehe: <a class="reference external" href="https://www.learnopencv.com/face-detection-opencv-dlib-and-deep-learning-c-python/">https://www.learnopencv.com/face-detection-opencv-dlib-and-deep-learning-c-python/</a></p>
+<p>Für einen weiteren Vergleich aller Lösungsansätze siehe: <a class="reference external" href="https://www.learnopencv.com/face-detection-opencv-dlib-and-deep-learning-c-python/">https://www.learnopencv.com/face-detection-opencv-dlib-and-deep-learning-c-python/</a></p>
 </div>
-<p>Zunächst wurde für den Service die Variante 1) verwendet. Der Grund hierfür war, dass nur ein einfaches Descriptor-File, das von OpenCV bereitgestellt wird, verwendet werden musste.
-Der Nachteil von diesem Ansatz ist jedoch, dass keine Gesichter von nicht frontal geschossenen Bilder erkannt werden. Da der Use-Case von diesem Service darauf abzielt, dass ein frontal geschossenes Foto an den Service übermittelt wird, war dies vollkommen ausreichend und hat auch funktioniert.
-Dennoch waren wir gewollt eine andere Variante zu wählen, bei der diese Probleme entfallen.</p>
-<p>Wenn es darum geht, den performantesten Lösungsansatz zu wählen, voraussichtlich die Berechnung erfolgt auf der CPU, dann würde die Variante 4) hervorgehen. Das Problem bei dieser ist jedoch, dass Gesichter die kleiner als 70x70px sind, nicht erkannt werden.
-Aus diesem Grund wurde sich für die Variante 2) entschieden. Sie weist keinerlei Nachteile vor, außer das sie minimal langsamer ist, als Variante 4).</p>
+</div>
 </div>
 <div class="section" id="cropping">
 <h2>Cropping<a class="headerlink" href="#cropping" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Zunächst wird auf dem Originalbild der ROI mit einem Deep Learning basierten Face Detector in OpenCV definiert. Danach wird ein Offset drauf gerechnet, sodass ein Porträtfoto entsteht.
-Anschließend wird das Foto auf die Zielgröße skaliert, ohne das Seitenverhältnis zu verlieren.
-Obwohl der Service derzeit nur in dem Use Case von dem Schwarz-Weiß-Service stattfindet und nicht extern aufgerufen wird, wurde die Möglichkeit geschaffen, dass dies möglich ist.
-Der Grund dafür lässt sich auf die Version dieses gesamten Service reduzieren. Sämtliche Bildverarbeitungsschritte, sollen sowohl extern als intern aufgerufen und kombiniert werden können.</p>
+<p>Zunächst wird auf dem Originalbild das Gesicht mit einem Deep Learning basierten Face Detector in OpenCV erkannt.</p>
+<a class="reference internal image-reference" href="../../../_images/dnn_flori.jpg"><img alt="../../../_images/dnn_flori.jpg" src="../../../_images/dnn_flori.jpg" style="width: 600px;" /></a>
+<p>Danach wird der ROI definiert, indem auf die Bounding-Box ein Offset drauf gerechnet wird. Daraufhin wird das Porträtfoto erzeugt.</p>
+<a class="reference internal image-reference" href="../../../_images/flori_cropped.jpg"><img alt="../../../_images/flori_cropped.jpg" src="../../../_images/flori_cropped.jpg" style="width: 600px;" /></a>
+<p>Anschließend wird das Foto auf die Zielgröße skaliert, ohne das Seitenverhältnis zu verlieren.</p>
 </div>
 <div class="section" id="api">
 <h2>API<a class="headerlink" href="#api" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Obwohl der Service derzeit nur in dem Use Case von dem Schwarz-Weiß-Service stattfindet und nicht extern aufgerufen wird, wurde die Möglichkeit geschaffen, dass dies möglich ist.
+Für weitere Informationen siehe API-Referenz</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api.html">MQTT API</a></li>

@@ -16,5 +16,3 @@ Inhaltsverzeichnis
 
    tech-stack/docker
 
-   projektarbeit/index
-

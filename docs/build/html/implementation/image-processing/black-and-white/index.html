@@ -94,7 +94,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../tech-stack/index.html">Technologie</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Black-and-White Service (Oreo service)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#evaluation">Evaluation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#schwarz-weisz-berechnung">Schwarz-Weiß-Berechnung</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#schwarz-weisz-berechnung">Schwarz-Weiß-Berechnung</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#grayscale">Grayscale</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simple-threshold">Simple-Threshold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adaptive-threshold">Adaptive-Threshold</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#api">API</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="api.html">MQTT API</a></li>
 </ul>
@@ -162,10 +167,6 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../../projektarbeit/allgemeines.html">Allgemeines</a> &raquo;</li>
-        
-          <li><a href="../../index.html">Implementierung</a> &raquo;</li>
-        
           <li><a href="../index.html">Bildbearbeitung</a> &raquo;</li>
         
       <li>Black-and-White Service (Oreo service)</li>
@@ -199,6 +200,10 @@ ob eine Implementierung des Service direkt im UI nicht von Vorteil wäre.</p>
 Diesem Problem, wurde versucht entgegenzuwirken, indem der Micro-Service drei verschiedene Berechnungen mit jeweils unterschiedlichen Algorithmen erzeugt.
 Dennoch besteht das Risiko, dass aufgrund der Lichtverhältnisse die Ergebnisse nicht zufriedenstellen sind.</p>
 <p>Aus diesem Grund wurde eine Alternative entwickelt, die direkt im Browser läuft, und der Backend-Lösung gegenüber gestellt.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hinweis</p>
+<p>Die entwickelte Web-Version, mit der die Evaluation vollzogen wurde, liegt der FaceBox-Demo bei.</p>
+</div>
 <p>Dabei kamen wir zum Ergebnis, dass die Realisierung im Frontend durchaus vorstellbar ist. Jedoch verfügt die JavaScript-Implementierung von OpenCV weniger Funktionalitäten, als die Python-Implementierung.
 Zudem ist die Vision, dass sämtliche Bildbearbeitungsprozesse die zukünftig im EmRoLab notwendig sein werden, dem Service hinzugefügt werden können.</p>
 <div class="admonition note">
@@ -208,28 +213,70 @@ Zudem ist die Vision, dass sämtliche Bildbearbeitungsprozesse die zukünftig im
 </div>
 <div class="section" id="schwarz-weisz-berechnung">
 <h2>Schwarz-Weiß-Berechnung<a class="headerlink" href="#schwarz-weisz-berechnung" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Bei der Schwarz-Weiß-Berechnung wird zunächst das Original-Bild aus einem MinIo-Bucket eingelesen. Anschließend wird aus dem Originalfoto ein Grayscale Foto erzeugt, beidem das Farbspektrum auf eine Pixel-Range von 0 bis 255 verteilt wird (0 Schwarz, 255 Weiß).</p>
-<p>Daraufhin erfolgt die eigentliche Schwarz-Weiß-Berechnung mittels Threshold. Hierfür bietet OpenCV verschiedene Operationen:</p>
-<ol class="arabic simple">
-<li><p>(Simple)-Threshold</p></li>
-<li><p>Adaptive-Threshold</p></li>
-</ol>
-<p>Hinzu kommt noch, dass der Adaptive-Threshold über zwei unterschiedliche Algorithmen verfügt, die zu unterschiedlichen Resultaten führen:</p>
+<p>In diesem Abschnitt wird schrittweise die Schwarz-Weiß Berechnung anhand eines Beispielbildes erläutert. Jeder dieser Varianten wird derzeit
+von dem Service ausgeführt, sodass 3 unterschiedliche Ergebnisse entstehen.</p>
+<p>Folgendes Beispielbild wurde verwendet:</p>
+<a class="reference internal image-reference" href="../../../_images/girl.jpg"><img alt="../../../_images/girl.jpg" src="../../../_images/girl.jpg" style="width: 600px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Neben den hier aufgeführten Berechnungsmethoden und Algorithmen, gibt es noch eine weitere Variante, bei der mittels Otsu’s Binarization, oder auch Otsu’s method genannt, ein Schwellwert definiert werden kann. Dies erfolgt über eine bimodale Verteilung.
+Wenn ein Bild über keine solche Verteilung verfügt, kann diese Operation nicht ausgeführt werden.
+Aus diesem Grund wurde sich mit der Frontend-Gruppe darauf geeinigt, dass der Service nur mit den folgenden Methoden und Algorithmen die Berechnung ausführt.</p>
+</div>
+<div class="section" id="grayscale">
+<h3>Grayscale<a class="headerlink" href="#grayscale" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Bei der Schwarz-Weiß-Berechnung wird zunächst das Original-Bild aus einem MinIo-Bucket eingelesen. Anschließend wird aus dem Originalfoto ein Grayscale Foto erzeugt,
+bei dem das Farbspektrum auf eine Pixel-Range von 0 bis 255 verteilt wird (0 Schwarz, 255 Weiß).</p>
+<p>Wird diese Operation auf das Beispielbild ausgeführt, so erhält man folgendes Ergebnis.</p>
+<a class="reference internal image-reference" href="../../../_images/gray_image.jpg"><img alt="../../../_images/gray_image.jpg" src="../../../_images/gray_image.jpg" style="width: 600px;" /></a>
+<p>Daraufhin erfolgt die eigentliche Schwarz-Weiß-Berechnung mittels Threshold. Hierfür bietet OpenCV verschiedene Operationen, die im Weiteren erläutert werden.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Image-Thresholding ist ein simples, dennoch äußerst effektives Verfahren, bei dem Bilder in einen Vordergrund und Hintergrund unterteilt werden.
+Voraussetzung hierfür ist die Erzeugung eines Grayscale-Bildes. Die Ergebnisqualität ist von der Kontraststärke des Originalbildes abhängig. Für weitere Informationen siehe
+<a class="reference external" href="https://www.mathworks.com/discovery/image-thresholding.html">https://www.mathworks.com/discovery/image-thresholding.html</a></p>
+</div>
+</div>
+<div class="section" id="simple-threshold">
+<h3>Simple-Threshold<a class="headerlink" href="#simple-threshold" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Bei dem Simple-Thresholding wird jeder Pixel mit einem <code class="docutils literal notranslate"><span class="pre">Threshold-Value</span></code> verglichen. Sollte der Wert des Pixels größer sein, als die des Threshold-Values, wird ein definierter Wert zugewiesen (z. B. 255 für Weiß).</p>
+<p>Der Service verwendet standardmäßig eine Threshold-Value von 145. Für weitere Informationen bitte in die API-Beschreibung schauen.</p>
+<p>Wird auf dem Grayscale von unserem Beispielbild ein Simple-Thresholding mit dem Wert 145 ausgeführt, so erhält man folgendes Ergebnis:</p>
+<a class="reference internal image-reference" href="../../../_images/global_thresh_145_image.jpg"><img alt="../../../_images/global_thresh_145_image.jpg" src="../../../_images/global_thresh_145_image.jpg" style="width: 600px;" /></a>
+<p>Das Problem, bei dem Simple-Thresholding ist, dass ein globaler Wert definiert wird, gegen den jeder Pixel verglichen wird. Da Bilder in der Regel unterschiedlich ausgeleuchtet sind,
+führt dies zu einer Problematik, bei dem teilweise Bildausschnitte eingefärbt werden, die das Originalbild stark deformieren.</p>
+<p>Mit einem Adaptive-Thresholding kann hier entgegengewirkt werden.</p>
+</div>
+<div class="section" id="adaptive-threshold">
+<h3>Adaptive-Threshold<a class="headerlink" href="#adaptive-threshold" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Bei dem Adaptive-Thresholding werden verschiedene Threshold-Values für einzelne Regionen des Bildes berechnet.
+Dies führt gerade bei Bildern, die unterschiedlich ausgeleuchtet sind, zu besseren Resultaten als mit dem Simple-Thresholding.</p>
+<p>In OpenCv wird der Adaptive-Threshold für ein Bild mit zwei adaptiven Methoden gebildet:</p>
 <ol class="arabic simple">
 <li><p>ADAPTIVE_THRESH_MEAN_C</p></li>
 <li><p>ADAPTIVE_THRESH_GAUSSIAN_C</p></li>
 </ol>
-<div class="admonition note">
-<p class="admonition-title">Bemerkung</p>
-<p>Es gibt noch eine weitere Berechnungsmethode, bei der mittels Otsu’s Binarization, oder auch Otsu’s method genannt, ein Schwellwert definiert werden kann. Dies erfolgt über eine bimodale Verteilung. Wenn ein Bild über keine solche Verteilung verfügt, kann diese Operation nicht ausgeführt werden.
-Aus diesem Grund wurde sich mit der Frontend-Gruppe darauf geeinigt, dass der Service nur mit den o. g. Methoden die Berechnung ausführt.</p>
-</div>
-<p>Für jedes Bild werden insgesamt 3 verschiedene Berechnung durchgeführt:</p>
+<p>Neben diesen Methoden gibt es 2 weitere Parameter,
+die eine große Auswirkungen auf das Resultat haben:</p>
 <ol class="arabic simple">
-<li><p>(Simple)-Threshold</p></li>
-<li><p>Adaptive-Threshold mit ADAPTIVE_THRESH_MEAN_C</p></li>
-<li><p>Adaptive-Threshold mit ADAPTIVE_THRESH_GAUSSIAN_C</p></li>
+<li><p>blockSize</p></li>
+<li><p>C (Konstante)</p></li>
 </ol>
+<p>Für die folgenden Beispiele wurden die Standardwerte des Service verwendet:</p>
+<ol class="arabic simple">
+<li><p>blockSize = 11</p></li>
+<li><p>C = 2</p></li>
+</ol>
+<p><strong>ADAPTIVE_THRESH_MEAN_C</strong></p>
+<p>Bei diesem Algorithmus wird der Threshold folgendermaßen berechnet: Der Threshold T(x,y) ist ein Repräsentant für die benachbarten Punkte x, y minus einer Konstante C.</p>
+<p>Wird auf dem Grayscale von unserem Beispielbild ein Adaptive-Thresholding mit den zuvor genanten Parametern und dieser Methode ausgeführt, so erhält man folgendes Ergebnis:</p>
+<a class="reference internal image-reference" href="../../../_images/adaptive_thresh_mean_image.jpg"><img alt="../../../_images/adaptive_thresh_mean_image.jpg" src="../../../_images/adaptive_thresh_mean_image.jpg" style="width: 600px;" /></a>
+<p><strong>ADAPTIVE_THRESH_GAUSSIAN_C</strong></p>
+<p>Bei diesem Algorithmus wird der Threshold folgendermaßen berechnet: Der Threshold T(x,y) ist eine gewichtete Summe (Bei diesem Algorithmus wird der Threshold folgendermaßen berechnet:
+Der Threshold T(x,y) ist eine gewichtete Summe (Kreuzkorrelation mit einer Gauß-Fensternfunktion) für die benachbarten Punkte x,y minus einer Konstante C.</p>
+<p>Wird auf dem Grayscale von unserem Beispielbild ein Adaptive-Thresholding mit den zuvor genanten Parametern und dieser Methode ausgeführt, so erhält man folgendes Ergebnis:</p>
+<a class="reference internal image-reference" href="../../../_images/adaptive_thresh_gaussian_image.jpg"><img alt="../../../_images/adaptive_thresh_gaussian_image.jpg" src="../../../_images/adaptive_thresh_gaussian_image.jpg" style="width: 600px;" /></a>
+</div>
 </div>
 <div class="section" id="api">
 <h2>API<a class="headerlink" href="#api" title="Link zu dieser Überschrift">¶</a></h2>

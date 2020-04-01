@@ -163,10 +163,6 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../../projektarbeit/allgemeines.html">Allgemeines</a> &raquo;</li>
-        
-          <li><a href="../../index.html">Implementierung</a> &raquo;</li>
-        
           <li><a href="../index.html">Gesichtererkennung</a> &raquo;</li>
         
       <li>face-recognition</li>
@@ -293,18 +289,20 @@ javascript-basierte Bibliothek face-api.js (Joshua Lieser) miteinander vergliche
 Hierzu wird versucht das größte / deutlichste Gesicht in einem Bild zu erkennen.
 Das Bild muss dazu unter /face-recognition/train-images/&lt;label&gt;/&lt;image-name&gt; auf MinIO abgelegt und sein
 Name anhand der jeweiligen MQTT Message übergeben werden.
-Falls ein Gesicht erkannt wird, wird außerdem ein Facedeskriptor bestehend aus 128 Float-Werten
-ermittelt, der später für die Wiedererkennung benötigt wird. Ermittelte Deskriptoren werden
-als /face-recognition/descriptors/&lt;label&gt; abgelegt. Bei Erfolg wird auf dem entsprechenden
+Falls ein Gesicht erkannt wird, werden 68-Punkt Face Landmarks dafür berechnet und in einem Folgeschritt schließlich ein Facedeskriptor
+bestehend aus 128 Float-Werten, der später für die Wiedererkennung benötigt wird.
+Ermittelte Deskriptoren werden als /face-recognition/descriptors/&lt;label&gt; abgelegt. Bei Erfolg wird auf dem entsprechenden
 MQTT topic der ermittelte Score für das Gesicht publiziert, ansonsten eine Fehlermeldung.</p>
+<p>Beispiel für 68-Punkt Face Landmarks:</p>
+<a class="reference internal image-reference" href="../../../_images/face-landmarks.jpg"><img alt="../../../_images/face-landmarks.jpg" src="../../../_images/face-landmarks.jpg" style="width: 600px;" /></a>
 </div>
 <div class="section" id="wiedererkennung-von-gesichtern">
 <h2>Wiedererkennung von Gesichtern<a class="headerlink" href="#wiedererkennung-von-gesichtern" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Auf Basis zuvor trainierter Gesichter können Personen wiedererkannt werden.
 Hierfür wird ein Bild auf MinIO unter /face-recognition/query-images/&lt;image-name&gt;
 abgelegt und sein Name über die entsprechende MQTT Message übergeben.
-Dann wird zum übermittelten Bild der Facedeskriptor ermittelt und anhand einer Distanzformel mit
-gespeicherten Deskriptoren verglichen. Wird bei den Vergleichen eine bestimmte Distanz unterschritten,
+Dann wird zum übermittelten Bild der Facedeskriptor ermittelt, der mit Hilfe des Euklidischen Abstands (Euclidian Distance) mit
+gespeicherten Deskriptoren verglichen wird. Wird bei den Vergleichen eine bestimmte Distanz unterschritten,
 so wird das Label des entsprechenden Bilds über MQTT ausgegeben. Sollte keine Person wiedererkannt werden
 wird eine Fehlermeldung gesendet.</p>
 </div>

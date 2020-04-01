@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
     <link rel="search" title="Suche" href="../../../search.html" />
-    <link rel="next" title="Demo" href="../../../demo/index.html" />
+    <link rel="next" title="Übersicht" href="../../../demo/webdemo.html" />
     <link rel="prev" title="Cropping Service" href="index.html" /> 
 </head>
 
@@ -162,10 +162,6 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../../projektarbeit/allgemeines.html">Allgemeines</a> &raquo;</li>
-        
-          <li><a href="../../index.html">Implementierung</a> &raquo;</li>
-        
           <li><a href="../index.html">Bildbearbeitung</a> &raquo;</li>
         
           <li><a href="index.html">Cropping Service</a> &raquo;</li>
@@ -204,8 +200,8 @@ Alle <code class="docutils literal notranslate"><span class="pre">Endpunkte</spa
 <dd class="field-odd"><p>Hier wird eine Nachricht gepostet, wenn ein Portraitfoto erzeugt werden soll.</p>
 <p><strong>Example request</strong>:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;requestUuid&quot;</span><span class="p">:</span> <span class="s2">&quot;zf3fc95a-8697-4ff2-9fc4-50820873c5c0&quot;</span>
-    <span class="s2">&quot;messageType&quot;</span><span class="p">:</span> <span class="s2">&quot;createRequest&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;requestUuid&quot;</span><span class="p">:</span> <span class="s2">&quot;zf3fc95a-8697-4ff2-9fc4-50820873c5c0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;messageType&quot;</span><span class="p">:</span> <span class="s2">&quot;createRequest&quot;</span><span class="p">,</span>
     <span class="nt">&quot;bucket&quot;</span><span class="p">:</span> <span class="s2">&quot;image-processing&quot;</span><span class="p">,</span>
     <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;originalImage/flori.jpg&quot;</span><span class="p">,</span>
     <span class="nt">&quot;imageName&quot;</span><span class="p">:</span> <span class="s2">&quot;flori.jpg&quot;</span><span class="p">,</span>
@@ -215,6 +211,25 @@ Alle <code class="docutils literal notranslate"><span class="pre">Endpunkte</spa
 <span class="p">}</span>
 </pre></div>
 </div>
+<p><strong>Parameter</strong></p>
+<dl class="simple">
+<dt>requestUuid</dt><dd><p>Unique-Identifier für einen Request.</p>
+</dd>
+<dt>messageType</dt><dd><p>Identifiziert den Typen der Nachricht.</p>
+</dd>
+<dt>bucket</dt><dd><p>Name des MinIo Buckets, indem sich das Original-Bild befindet.</p>
+</dd>
+<dt>path</dt><dd><p>Pfad innerhalb des Buckets zu dem Bild.</p>
+</dd>
+<dt>imageName</dt><dd><p>Name des Bildes. Dieser Name wird in den erzeugten Bildern wieder verwendet.</p>
+</dd>
+<dt>mime</dt><dd><p>Mime-Type des Bildes.</p>
+</dd>
+<dt>targetWidthPx<span class="classifier">int</span></dt><dd><p>Ziel-Breite des Bildes.</p>
+</dd>
+<dt>targetHeightPx<span class="classifier">int</span></dt><dd><p>Ziel-Höhe des Bildes.</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">SUBSCRIBE <cite>image-processing/results/crop</cite></dt>
 <dd class="field-even"><p>Auf diese topic publisht der Image-Processing Service seine Nachricht, wenn ein Portraitfoto erzeugt wurde.</p>
@@ -234,6 +249,21 @@ Alle <code class="docutils literal notranslate"><span class="pre">Endpunkte</spa
 <span class="p">}</span>
 </pre></div>
 </div>
+<p><strong>Parameter</strong></p>
+<dl class="simple">
+<dt>originalRequestUuid</dt><dd><p>Die Ursprüngliche <code class="docutils literal notranslate"><span class="pre">requestUuid</span></code> die dem Service beim Request mitgeteilt wurde.</p>
+</dd>
+<dt>messageType</dt><dd><p>Identifiziert den Typen der Nachricht.</p>
+</dd>
+<dt>croppedImages</dt><dd><p>Array mit den erstellten Bildern</p>
+</dd>
+<dt>bucket</dt><dd><p>Name des MinIo Buckets, indem das  Bild abgelegt wurde.</p>
+</dd>
+<dt>path</dt><dd><p>Pfad innerhalb des Buckets zu dem Bild.</p>
+</dd>
+<dt>mime</dt><dd><p>Mime-Type des Bildes.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 <div class="admonition note">
@@ -251,7 +281,7 @@ Das Zweite Bild ist das Portraitfoto ohne Skalierung.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../../demo/index.html" class="btn btn-neutral float-right" title="Demo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../../demo/webdemo.html" class="btn btn-neutral float-right" title="Übersicht" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="Cropping Service" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

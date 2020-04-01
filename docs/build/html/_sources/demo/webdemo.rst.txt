@@ -33,7 +33,7 @@ Die Demo-Anwendung wurde entwickelt um die Schnittstellen der folgenden Services
 
 * face-box
 * face-recognition
-* image-processing
+* image-processing (Web-Version des Schwarz-Weiß-Service)
 
 Die Browser-basierte Anwendung wird durch Nodejs betrieben, die mithilfe der MQTT Schnittstelle und der Anbindung zum MinIO Storage, die Funktionalität der Services
 ausführen kann. Zusätzlich wird eine Postgre-Datenbank betrieben, um die personenbezogenen Daten abzuspeichern und diese durch die Wiedererkennung des Gesichts abrufbar zu machen. 
@@ -57,6 +57,9 @@ Die Datenbank läuft über eine vorgefertigtes Docker Image mit minimaler Konfig
 
 Use Case
 ++++++++++++++++++++++
+
+face-box und face-recognition
+---------------------------------
 
 1.
     Der Nutzer drückt auf Start Recognition.
@@ -105,3 +108,27 @@ und seine Personendaten abzurufen beziehungsweise ausdrucken zu lassen.
 .. image:: ../_static/images/demo_recognition.png
    :width: 600
 
+
+image-processing
+---------------------------------
+
+1. 
+    Aufrufen der Applikation über Navigationsleiste
+
+.. image:: ../_static/images/demo_i-p_init.png
+   :width: 600
+
+2. 
+    Bild hochladen über File-Uploader
+
+.. image:: ../_static/images/demo_i-p_upload_done.png
+   :width: 600
+
+2. 
+    Bild-Operation ausführen
+
+    Zunächst die gewünschte Threshold-Variante per Selectbox auswählen.
+    Anschließend kann mit dem Slider die Bearbeitung durchgeführt werden.
+
+.. image:: ../_static/images/demo_i-p_simple_done.png
+   :width: 600

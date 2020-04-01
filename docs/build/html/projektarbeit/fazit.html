@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Kontakt" href="../help.html" />
+    <link rel="next" title="Gesichtererkennung" href="../implementation/face-services/index.html" />
     <link rel="prev" title="Architektur" href="architektur.html" /> 
 </head>
 
@@ -170,6 +170,62 @@
             
   <div class="section" id="fazit">
 <h1>Fazit<a class="headerlink" href="#fazit" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Um die Anforderungen an das Projekt zu erfüllen wurden letztendlich 3 voneinander unabhängige Services entwickelt.
+Diese stellen folgende Funktionalitäten bereit:</p>
+<ul class="simple">
+<li><p>Berechnung der Koordinaten von Begrenzungsboxen zur grafischen Anzeige des erkannten Gesichts</p></li>
+<li><p>Erkennung des deutlichsten Gesichtes in gesendeten Bildern und Berechnung und Speicherung der Gesichtsdeskriptoren,
+sowie die Wiederkennung von Gesichtern auf Basis gespeicherter Deskriptoren</p></li>
+<li><p>Verarbeitung von Bildern, d.h. die Anwendung bestimmter Effekte (Portrait / Image-Thresholding)</p></li>
+</ul>
+<p>Die Integrationsvorgabe wurde aus Zeitgründen insofern verändert, dass bislang lediglich der Image-Processing Service mit dem UI der Gruppe 6 integriert werden musste.
+Zusätzlich wurde jedoch eine Demo-Anwendung entwickelt, an die alle Services angebunden sind, sodass diese getestet werden können. Hierzu wurde außerdem ein kurzes
+Demo Video bereitgestellt.</p>
+<p>Im Rahmen des Projektes haben die Teammitglieder verschiedenste Technologien und Frameworks kennengelernt und miteinander verglichen, darunter:</p>
+<p>Programmiersprachen:</p>
+<ul class="simple">
+<li><p>Node.js / Javascript / Typescript</p></li>
+<li><p>Python</p></li>
+</ul>
+<p>Bibliotheken &amp; Frameworks:</p>
+<ul class="simple">
+<li><p>Gesichtserkennung</p>
+<ul>
+<li><p>facenet</p></li>
+<li><p>face++</p></li>
+<li><p>OpenFaceTracker</p></li>
+<li><p>face-api.js</p></li>
+</ul>
+</li>
+<li><p>Bildbearbeitung</p>
+<ul>
+<li><p>OpenCV</p></li>
+</ul>
+</li>
+<li><p>Kommunikationsprotokolle</p>
+<ul>
+<li><p>HTTP (JSON Endpunkte)</p></li>
+<li><p>MQTT</p></li>
+</ul>
+</li>
+<li><p>Persistenz</p>
+<ul>
+<li><p>MinIO</p></li>
+<li><p>Postgres</p></li>
+</ul>
+</li>
+<li><p>Dokumentation</p>
+<ul>
+<li><p>Sphinx (ReadTheDocs Theme)</p></li>
+</ul>
+</li>
+</ul>
+<p>Die funktionalen Anforderungen wurden nach entsprechender Evaluation schlussendlich unter Nutzung der Kombinationen „Node.js, Typescript, MQTT, MinIO, face-api.js“
+und „Python, MQTT, MinIO, OpenCV“ erfüllt.</p>
+<p>Darüber hinaus wurde Docker als Deployment-Hilfe eingesetzt. Demnach existiert zu jedem Service eine Docker-Image, das ohne weiteres in Betrieb genommen werden kann.
+Um eine gemeinsame Nutzung aller Services zu ermöglichen wurde docker-compose verwendet.</p>
+<p>Durch das zuvor beschriebene konnte zur gegebenen Aufgabenstellung eine Lösung entwickelt werden, die unabhängige Probleme in verschiedene Teilsysteme auslagert und unter minimalem
+Einrichtungsaufwand ein lose gekoppeltes Zusammenspiel dieser ermöglicht.</p>
 </div>
 
 
@@ -180,7 +236,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../help.html" class="btn btn-neutral float-right" title="Kontakt" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../implementation/face-services/index.html" class="btn btn-neutral float-right" title="Gesichtererkennung" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="architektur.html" class="btn btn-neutral float-left" title="Architektur" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

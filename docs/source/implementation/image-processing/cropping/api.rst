@@ -17,7 +17,7 @@ Im Folgenden sind die Topics und ihre Funktion für den Cropping-Service aufgef�
     .. sourcecode:: json
 
         {
-            "requestUuid": "zf3fc95a-8697-4ff2-9fc4-50820873c5c0"
+            "requestUuid": "zf3fc95a-8697-4ff2-9fc4-50820873c5c0",
             "messageType": "createRequest",
             "bucket": "image-processing",
             "path": "originalImage/flori.jpg",
@@ -26,6 +26,26 @@ Im Folgenden sind die Topics und ihre Funktion für den Cropping-Service aufgef�
             "targetWidthPx": 600,
             "targetHeightPx": 600,
         }
+    
+    **Parameter**
+
+    requestUuid 
+        Unique-Identifier für einen Request.
+    messageType 
+        Identifiziert den Typen der Nachricht.
+    bucket 
+        Name des MinIo Buckets, indem sich das Original-Bild befindet.
+    path 
+        Pfad innerhalb des Buckets zu dem Bild.
+    imageName 
+        Name des Bildes. Dieser Name wird in den erzeugten Bildern wieder verwendet.
+    mime 
+        Mime-Type des Bildes.
+    targetWidthPx : int
+        Ziel-Breite des Bildes.
+    targetHeightPx : int
+        Ziel-Höhe des Bildes.
+   
 
 
 
@@ -48,6 +68,21 @@ Im Folgenden sind die Topics und ihre Funktion für den Cropping-Service aufgef�
                 "mime": "image/jpeg"
             }]
         }
+    
+    **Parameter**
+
+    originalRequestUuid
+        Die Ursprüngliche ``requestUuid`` die dem Service beim Request mitgeteilt wurde.
+    messageType
+        Identifiziert den Typen der Nachricht.
+    croppedImages
+        Array mit den erstellten Bildern
+    bucket
+        Name des MinIo Buckets, indem das  Bild abgelegt wurde.
+    path
+        Pfad innerhalb des Buckets zu dem Bild.
+    mime
+        Mime-Type des Bildes.
 
 .. note::
 

@@ -115,6 +115,30 @@ Standard-Konfiguration
                 MINIO_PORT: 9000
             logging: *default-logging
 
+        image-processing:
+            image: image-processing:latest
+            build: .
+            container_name: gaia_image_processing
+            restart: always
+            depends_on: 
+            - "mqtt_broker"
+            - "minio"
+            environment:
+                MINIO_HOST: minio:9000
+                MINIO_SECURE: false
+                MINIO_ACCESS_KEY: xQC2dV7ohZmUaz1Fxz0bKLzDeaGS1WXF
+                MINIO_SECRET_KEY: gioVfeVp4Qus4wWBk0ITvKrzebu8xcMB
+                MINIO_BUCKET: image-processing
+
+                MQTT_BROKER_ADDRESS: mqtt_broker
+                MQTT_CLIENT_ID: image-processing-client
+                MQTT_MAIN_TOPIC: image-processing/actions/#
+                MQTT_OREO_SUB_TOPIC: image-processing/actions/oreo
+                MQTT_CROP_SUB_TOPIC: image-processing/actions/crop
+                MQTT_OREO_RESULT_TOPIC: image-processing/results/oreo
+                MQTT_CROP_RESULT_TOPIC: image-processing/results/crop
+            logging: *default-logging
+        
         networks:
         gaia:
             name: gaia-network_mode
