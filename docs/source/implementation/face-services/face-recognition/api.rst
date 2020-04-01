@@ -37,6 +37,15 @@ Im Folgenden sind die Topics und ihre Funktion aufgeführt.
                 "image": "image.jpg"
         }
 
+    **Example request**:
+
+    .. sourcecode:: json
+
+        {
+                "$id": "task_1",
+                "error": {"message": no face was detected}
+        }
+
 .. note::
 
    label ist die userid in der Datenbank. image ist der Name des Bildes im minIO Storage.
@@ -52,4 +61,13 @@ Im Folgenden sind die Topics und ihre Funktion aufgeführt.
             "$id": 12,
             "error": "Person has not been recognized",
             "label": "unknown"
+        }
+
+    **Example request**:
+
+    .. sourcecode:: json
+
+        {
+            "$id": 12,
+            "error": {"message": no face was detected},
         }
