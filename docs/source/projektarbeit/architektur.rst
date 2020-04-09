@@ -15,7 +15,7 @@ durch Docker Swarm einfach ersetzt werden kann. Unser Technologie Stack besteht 
 * Python
 
 .. image:: ../_static/images/architecture.png
-   :width: 700
+   :width: 600
 
 Workflow
 ++++++++++++++++++++++
