@@ -31,7 +31,7 @@ Danach muss nur noch die app.py gestartet werden::
     user@shell:image-processing$ python app.py
 
 
-* localhost:7001 -> minIO storage
+* localhost:7001 -> MinIO storage
 
 MQTT Broker 
 +++++++++++++++++++++

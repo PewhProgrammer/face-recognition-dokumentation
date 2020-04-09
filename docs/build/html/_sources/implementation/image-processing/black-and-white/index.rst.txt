@@ -48,7 +48,7 @@ Folgendes Beispielbild wurde verwendet:
 Grayscale
 -------------------
 
-Bei der Schwarz-Weiß-Berechnung wird zunächst das Original-Bild aus einem MinIo-Bucket eingelesen. Anschließend wird aus dem Originalfoto ein Grayscale Foto erzeugt,
+Bei der Schwarz-Weiß-Berechnung wird zunächst das Original-Bild aus einem MinIO-Bucket eingelesen. Anschließend wird aus dem Originalfoto ein Grayscale Foto erzeugt,
 bei dem das Farbspektrum auf eine Pixel-Range von 0 bis 255 verteilt wird (0 Schwarz, 255 Weiß).
 
 Wird diese Operation auf das Beispielbild ausgeführt, so erhält man folgendes Ergebnis.

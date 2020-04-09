@@ -23,30 +23,33 @@ Im Folgenden sind die Topics und ihre Funktion für den Schwarz-Weiß-Service (O
             "path": "originalImage/demo_image.jpg",
             "imageName": "demo_image.jpg",
             "mime": "image/jpeg",
-            "crop": true,
-            "targetWidthPx": 600,
-            "targetHeightPx": 600,
+            "crop": {
+                "targetWidthPx": 600,
+                "targetHeightPx": 600
+            },
             "methods": [{
                 "algorithm": "SIMPLE_THRESH",
                 "options": {
-                     "thresh": 147,
-                     "maxVal": 255,
-                     "invertThresh": false
-                }   
-            },{
+                    "thresh": 147,
+                    "maxVal": 255,
+                    "invertThresh": false
+                }
+            }, {
                 "algorithm": "ADAPTIVE_MEAN",
                 "options": {
-                     "blockSize": 147,
-                     "constantVal": 255,
-                     "invertThresh": false
-                } 
+                    "blockSize": 11,
+                    "constantVal": 2,
+                    "maxVal": 255,
+                    "invertThresh": false
+                }
             }, {
                 "algorithm": "ADAPTIVE_GAUSSIAN",
                 "options": {
-                     "blockSize": 147,
-                     "constantVal": 255,
-                     "invertThresh": false
-                } 
+                    "blockSize": 11,
+                    "constantVal": 2,
+                    "maxVal": 255,
+                    "invertThresh": false
+                }
             }]
         }
 
@@ -57,7 +60,7 @@ Im Folgenden sind die Topics und ihre Funktion für den Schwarz-Weiß-Service (O
     messageType 
         Identifiziert den Typen der Nachricht.
     bucket 
-        Name des MinIo Buckets, indem sich das Original-Bild befindet.
+        Name des MinIO Buckets, indem sich das Original-Bild befindet.
     path 
         Pfad innerhalb des Buckets zu dem Bild.
     imageName 
@@ -65,7 +68,7 @@ Im Folgenden sind die Topics und ihre Funktion für den Schwarz-Weiß-Service (O
     mime 
         Mime-Type des Bildes.
     crop 
-        Identifiziert, ob ein Bild zugeschnitten werden soll.
+       ``Optionales-Objekt`` Identifiziert, ob ein Bild zugeschnitten werden soll.
     targetWidthPx : int
         Ziel-Breite des Bildes.
     targetHeightPx : int
@@ -90,7 +93,7 @@ Im Folgenden sind die Topics und ihre Funktion für den Schwarz-Weiß-Service (O
 
 :SUBSCRIBE `image-processing/results/oreo`: Auf diese topic publisht der Image-Processing Service seine Nachricht, wenn ein Schwarz-Weiß-Bild erzeugt wurde.
 
-    **Example request**:
+    **Example for a successful response**:
 
     .. sourcecode:: json
 
@@ -121,11 +124,27 @@ Im Folgenden sind die Topics und ihre Funktion für den Schwarz-Weiß-Service (O
     oreos
         Array mit den erstellten Bildern.
     bucket
-        Name des MinIo Buckets, indem das  Bild abgelegt wurde.
+        Name des MinIO Buckets, indem das  Bild abgelegt wurde.
     path
         Pfad innerhalb des Buckets zu dem Bild.
     mime
         Mime-Type des Bildes.
+    
+    **Example for a error response**:
+
+    .. sourcecode:: json
+
+        {
+            "originalRequestUuid": "zf3fc95a-8697-4ff2-9fc4-50820873c5c0",
+            "errorMessage": "Couldn't create oreo!. Exception: AttributeError,  Arguments:(\"'str' object has no attribute 'value'\",)"
+        }
+
+    **Parameter**
+
+    originalRequestUuid
+        Die Ursprüngliche ``requestUuid`` die dem Service beim Request mitgeteilt wurde.
+    errorMessage
+        Nachricht die darüber informiert, weswegen die Operation fehlgeschlagen ist.
     
 .. note::
 

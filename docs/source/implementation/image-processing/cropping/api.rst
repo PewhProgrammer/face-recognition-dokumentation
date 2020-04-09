@@ -34,7 +34,7 @@ Im Folgenden sind die Topics und ihre Funktion für den Cropping-Service aufgef�
     messageType 
         Identifiziert den Typen der Nachricht.
     bucket 
-        Name des MinIo Buckets, indem sich das Original-Bild befindet.
+        Name des MinIO Buckets, indem sich das Original-Bild befindet.
     path 
         Pfad innerhalb des Buckets zu dem Bild.
     imageName 
@@ -78,11 +78,29 @@ Im Folgenden sind die Topics und ihre Funktion für den Cropping-Service aufgef�
     croppedImages
         Array mit den erstellten Bildern
     bucket
-        Name des MinIo Buckets, indem das  Bild abgelegt wurde.
+        Name des MinIO Buckets, indem das  Bild abgelegt wurde.
     path
         Pfad innerhalb des Buckets zu dem Bild.
     mime
         Mime-Type des Bildes.
+    
+  
+    **Example for a error response**:
+
+    .. sourcecode:: json
+
+        {
+            "originalRequestUuid": "zf3fc95a-8697-4ff2-9fc4-50820873c5c0",
+            "errorMessage": "Couldn't crop the image!. Exception: AttributeError,  Arguments:(\"'str' object has no attribute 'value'\",)"
+        }
+
+    **Parameter**
+
+    originalRequestUuid
+        Die Ursprüngliche ``requestUuid`` die dem Service beim Request mitgeteilt wurde.
+    errorMessage
+        Nachricht die darüber informiert, weswegen die Operation fehlgeschlagen ist.
+  
 
 .. note::
 

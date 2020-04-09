@@ -44,11 +44,16 @@ Mit diesem Verfahren konnte das Gesicht aus unserem Beispiel erfolgreich erkannt
 Der Nachteil von diesem Ansatz ist jedoch, dass bei nicht frontal geschossenen Bilder, keine Gesichter erkannt werden. 
 
 Deep Learning basierter Face Detector in OpenCV
----------------------------------------------------------------
+----------------------------------------------------------
 Dieses Model wurde mit der Version 3.3 von OpenCv veröffentlicht. Es handelt sich um Single-Shot-Mutlibox detector, der eine ResNet-10 Architektur als Backbone verwendet.
 Das Model wurde basierend auf Bilder aus dem Internet trainiert. Leider wurde nicht bekannt gegeben, welche Bilder genau zum Trainieren verwendet wurden.
 
-Dieser Face Detector, kann mit zwei Models ausgeführt werden. Wir haben uns für die Float 16 Version der originalen caffee Implementierung entschieden.
+Dieser Face Detector, kann mit zwei Models ausgeführt werden:
+
+1. FP16 version of the original caffe implementation
+2. 8 bit Quantized version using Tensorflow
+
+Wir haben uns aus Performancegründen für die 8bit Quantized Version entschieden.
 
 Mit diesem Verfahren konnte das Gesicht aus unserem Beispiel erfolgreich erkannt werden:
 

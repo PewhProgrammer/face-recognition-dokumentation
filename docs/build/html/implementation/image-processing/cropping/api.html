@@ -217,7 +217,7 @@ Alle <code class="docutils literal notranslate"><span class="pre">Endpunkte</spa
 </dd>
 <dt>messageType</dt><dd><p>Identifiziert den Typen der Nachricht.</p>
 </dd>
-<dt>bucket</dt><dd><p>Name des MinIo Buckets, indem sich das Original-Bild befindet.</p>
+<dt>bucket</dt><dd><p>Name des MinIO Buckets, indem sich das Original-Bild befindet.</p>
 </dd>
 <dt>path</dt><dd><p>Pfad innerhalb des Buckets zu dem Bild.</p>
 </dd>
@@ -257,11 +257,25 @@ Alle <code class="docutils literal notranslate"><span class="pre">Endpunkte</spa
 </dd>
 <dt>croppedImages</dt><dd><p>Array mit den erstellten Bildern</p>
 </dd>
-<dt>bucket</dt><dd><p>Name des MinIo Buckets, indem das  Bild abgelegt wurde.</p>
+<dt>bucket</dt><dd><p>Name des MinIO Buckets, indem das  Bild abgelegt wurde.</p>
 </dd>
 <dt>path</dt><dd><p>Pfad innerhalb des Buckets zu dem Bild.</p>
 </dd>
 <dt>mime</dt><dd><p>Mime-Type des Bildes.</p>
+</dd>
+</dl>
+<p><strong>Example for a error response</strong>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;originalRequestUuid&quot;</span><span class="p">:</span> <span class="s2">&quot;zf3fc95a-8697-4ff2-9fc4-50820873c5c0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;errorMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;Couldn&#39;t crop the image!. Exception: AttributeError,  Arguments:(\&quot;&#39;str&#39; object has no attribute &#39;value&#39;\&quot;,)&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Parameter</strong></p>
+<dl class="simple">
+<dt>originalRequestUuid</dt><dd><p>Die Ursprüngliche <code class="docutils literal notranslate"><span class="pre">requestUuid</span></code> die dem Service beim Request mitgeteilt wurde.</p>
+</dd>
+<dt>errorMessage</dt><dd><p>Nachricht die darüber informiert, weswegen die Operation fehlgeschlagen ist.</p>
 </dd>
 </dl>
 </dd>

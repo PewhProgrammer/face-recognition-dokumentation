@@ -222,7 +222,12 @@ ein Descriptor File als Parameter mitgegeben wird. Diese stellt Opencv ebenfalls
 <h3>Deep Learning basierter Face Detector in OpenCV<a class="headerlink" href="#deep-learning-basierter-face-detector-in-opencv" title="Link zu dieser Überschrift">¶</a></h3>
 <p>Dieses Model wurde mit der Version 3.3 von OpenCv veröffentlicht. Es handelt sich um Single-Shot-Mutlibox detector, der eine ResNet-10 Architektur als Backbone verwendet.
 Das Model wurde basierend auf Bilder aus dem Internet trainiert. Leider wurde nicht bekannt gegeben, welche Bilder genau zum Trainieren verwendet wurden.</p>
-<p>Dieser Face Detector, kann mit zwei Models ausgeführt werden. Wir haben uns für die Float 16 Version der originalen caffee Implementierung entschieden.</p>
+<p>Dieser Face Detector, kann mit zwei Models ausgeführt werden:</p>
+<ol class="arabic simple">
+<li><p>FP16 version of the original caffe implementation</p></li>
+<li><p>8 bit Quantized version using Tensorflow</p></li>
+</ol>
+<p>Wir haben uns aus Performancegründen für die 8bit Quantized Version entschieden.</p>
 <p>Mit diesem Verfahren konnte das Gesicht aus unserem Beispiel erfolgreich erkannt werden:</p>
 <a class="reference internal image-reference" href="../../../_images/dnn_girl.jpg"><img alt="../../../_images/dnn_girl.jpg" src="../../../_images/dnn_girl.jpg" style="width: 600px;" /></a>
 <p>Des Weiteren können mit diesem Lösungsansatz auch Gesichter erkannt werden, die seitlich fotografiert wurden:</p>
